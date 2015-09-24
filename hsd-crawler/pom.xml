@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>HotStockDetector</artifactId>
-        <groupId>cn.zju.edu.vlis.bigdata</groupId>
+        <groupId>cn.edu.zju.vlis.bigdata</groupId>
         <version>${project.version}</version>
         <relativePath>..</relativePath>
     </parent>

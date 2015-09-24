@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.zju.edu.vlis.bigdata</groupId>
+    <groupId>cn.edu.zju.vlis.bigdata</groupId>
     <artifactId>HotStockDetector</artifactId>
     <packaging>pom</packaging>
     <version>${project.version}</version>
@@ -14,6 +14,9 @@
 
     <modules>
         <module>hsd-crawler</module>
+        <module>hsd-assembly</module>
+        <module>hsd-analysis</module>
+        <module>hsd-common</module>
     </modules>
 
     <developers>
