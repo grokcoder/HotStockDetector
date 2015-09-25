@@ -6,5 +6,6 @@ package cn.edu.zju.vlis.bigdata;
 public enum PAGE_TYPE {
     /**index page of financial news index page of sina*/
     SINA_FINANCIAL_INDEX_PAGE,
-    SINA_FINANCIAL_CONTENT_PAGE
+    SINA_FINANCIAL_CONTENT_PAGE,
+    NOT_DEFINE
 }

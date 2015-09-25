@@ -3,6 +3,7 @@ package cn.edu.zju.vlis.bigdata.app.sina;
 import cn.edu.zju.vlis.bigdata.NAV_BAR;
 import cn.edu.zju.vlis.bigdata.PAGE_TYPE;
 import cn.edu.zju.vlis.bigdata.PageClassifier;
+import cn.edu.zju.vlis.bigdata.app.sina.model.News;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.common.UrlFactory;
 import cn.edu.zju.vlis.bigdata.common.UrlParser;
@@ -60,13 +61,23 @@ public class NewsPageProcessor implements PageProcessor{
                 break;
             case SINA_FINANCIAL_CONTENT_PAGE: processContentPage(page);
                 break;
+            case NOT_DEFINE:LOG.warn(currUrl + " no parser defined yet ! ");
+                break;
         }
         LOG.info("process complete : " + currUrl);
     }
 
 
     public boolean validate(String time){
-        return true;
+
+
+        Integer endDate = 20150924;// for test
+
+        if(Integer.valueOf(time) > endDate){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     /**
@@ -103,19 +114,53 @@ public class NewsPageProcessor implements PageProcessor{
             String nextIndexPage = getNextPageUrl(page.getUrl().get(), NAV_BAR.GNCJ);
             requests.add(new Request(nextIndexPage));
         }
-
-
-        //test
-        requests.forEach(request -> LOG.info(request.getUrl()));
-
+        // add more request we fetched
+        requests.forEach(request -> page.addTargetRequest(request));
 
     }
 
+    /**
+     * process the page and fetch the news info from the page
+     * @param page
+     */
     public void processContentPage(Page page){
-        //todo: fetch info form page
+
+        News news = new News();
+        Html html = page.getHtml();
+
+
+        //TODO: 明儿继续
+
+        news.setTitle(html.xpath("h1[@id=artibodyTitle]/test()").get());
+        news.setBody(html.css("div[@id=artibody]").get());
+
+
+        news.setPublishMedia(html.css("div[class=page-info] > span[class=time-source]").get());
+        //news.setPublishDate(html.css("div[class=page-info] > span[class=time-source]").get());
+
+        // div[@id=artibody]/p/text() {多个段落}
+        // div[@class=page-info]/span[@class=time-source]/text() // 时间
+        // div[@class=page-info]/span[@class=time-source]/text()/span/text() // 来源
+
+        // div[@class=article-keywords]/a/text() //关键字 多个
+
+
+        news.setKeywords(html.css("div[class=article-keywords]").get());
+
+
+        LOG.info(news);
+
+       // page.putField(HsdConstant.MODEL, news);
+
     }
 
-
+    /**
+     * construct next crawled url based on the current url
+     * and the navigation bar
+     * @param currUrl current page url
+     * @param nav_bar navigation bar type
+     * @return
+     */
     public String getNextPageUrl(String currUrl, NAV_BAR nav_bar){
         int startIndex = currUrl.indexOf('_');
         int endIndex = currUrl.indexOf(".shtml");

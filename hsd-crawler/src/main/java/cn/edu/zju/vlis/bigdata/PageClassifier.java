@@ -16,10 +16,11 @@ public class PageClassifier {
             if(url.contains("index")){
                 return PAGE_TYPE.SINA_FINANCIAL_INDEX_PAGE;
             }else {
-                return PAGE_TYPE.SINA_FINANCIAL_CONTENT_PAGE;
+                return PAGE_TYPE.NOT_DEFINE;
             }
         }else {
-            return null;//todo
+            //todo: more accuratre
+            return PAGE_TYPE.SINA_FINANCIAL_CONTENT_PAGE;
         }
     }
 
