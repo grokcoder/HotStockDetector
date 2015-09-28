@@ -7,6 +7,7 @@ import cn.edu.zju.vlis.bigdata.app.sina.model.News;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.common.UrlFactory;
 import cn.edu.zju.vlis.bigdata.common.UrlParser;
+
 import com.typesafe.config.Config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,6 +17,7 @@ import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Html;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -128,29 +130,27 @@ public class NewsPageProcessor implements PageProcessor{
         News news = new News();
         Html html = page.getHtml();
 
+        news.setUrl(page.getUrl().get());
 
-        //TODO: 明儿继续
+        news.setTitle(html.xpath("h1[@id=artibodyTitle]/text()").get());
 
-        news.setTitle(html.xpath("h1[@id=artibodyTitle]/test()").get());
-        news.setBody(html.css("div[@id=artibody]").get());
+        //extract news content
+        List<String> phases = html.xpath("div[@id=artibody]/p/tidyText()").all();
+        StringBuilder body = new StringBuilder();
+        phases.forEach(p -> body.append(p));
+        news.setBody(body.toString());
+
+        news.setPublishDate(html.xpath("div[@class=page-info]/span[@class=time-source]/text()").get());
+
+        news.setPublishMedia(html.xpath("meta[@name=mediaid]/@content").get());
+
+        //extract keywords
+        news.setKeywords(html.xpath("meta[@name=keywords]/@content").get());
+
+        news.setTags(html.xpath("meta[@name=tags]/@content").get());
 
 
-        news.setPublishMedia(html.css("div[class=page-info] > span[class=time-source]").get());
-        //news.setPublishDate(html.css("div[class=page-info] > span[class=time-source]").get());
-
-        // div[@id=artibody]/p/text() {多个段落}
-        // div[@class=page-info]/span[@class=time-source]/text() // 时间
-        // div[@class=page-info]/span[@class=time-source]/text()/span/text() // 来源
-
-        // div[@class=article-keywords]/a/text() //关键字 多个
-
-
-        news.setKeywords(html.css("div[class=article-keywords]").get());
-
-
-        LOG.info(news);
-
-       // page.putField(HsdConstant.MODEL, news);
+        page.putField(HsdConstant.MODEL, news);
 
     }
 

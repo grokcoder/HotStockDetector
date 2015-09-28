@@ -1,7 +1,5 @@
 package cn.edu.zju.vlis.bigdata.app.sina.model;
 
-import java.util.Date;
-
 /**
  * Created by wangxiaoyi on 15/9/25.
  *
@@ -11,16 +9,21 @@ public class News {
 
     private String title;
 
-    private Date publishDate;
+    private String url;
+
+    private String publishDate;
 
     /**where the news published*/
     private String publishMedia;
 
+    /**keywords = "kw1 + ',' + kw2 + ',' + kw3"*/
+    private String keywords;
+
+    private String tags;
+
     /**the content of the news*/
     private String body;
 
-    /**keywords = "kw1 + ' ' + kw2 + ' ' + kw3"*/
-    private String keywords;
 
 
     public String getTitle() {
@@ -39,11 +42,11 @@ public class News {
         this.body = body;
     }
 
-    public Date getPublishDate() {
+    public String getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
+    public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
     }
 
@@ -63,14 +66,36 @@ public class News {
         this.publishMedia = publishMedia;
     }
 
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+
     @Override
     public String toString() {
         return "News{" +
                 "title='" + title + '\'' +
-                ", publishDate=" + publishDate +
+                ", url='" + url + '\'' +
+                ", publishDate='" + publishDate + '\'' +
                 ", publishMedia='" + publishMedia + '\'' +
-                ", body='" + body + '\'' +
                 ", keywords='" + keywords + '\'' +
+                ", tags='" + tags + '\'' +
+                ", body='" + "body ..." + '\'' +
+                ", body='" + "body ..." + '\'' +
                 '}';
     }
 }
