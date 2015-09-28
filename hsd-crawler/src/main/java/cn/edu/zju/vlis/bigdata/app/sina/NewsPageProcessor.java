@@ -6,8 +6,9 @@ import cn.edu.zju.vlis.bigdata.PageClassifier;
 import cn.edu.zju.vlis.bigdata.app.sina.model.News;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.common.UrlFactory;
-import cn.edu.zju.vlis.bigdata.common.UrlParser;
 
+import cn.edu.zju.vlis.bigdata.filter.FILTER_CODE;
+import cn.edu.zju.vlis.bigdata.filter.Filter;
 import com.typesafe.config.Config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +18,6 @@ import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Html;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,7 +37,10 @@ public class NewsPageProcessor implements PageProcessor{
     private Config conf = null;
     private Site site = null;
 
+    private Filter filter = null;
+
     public NewsPageProcessor(Config config){
+
         this.conf = config;
         site = Site.me()
                 .setRetryTimes(conf.getInt(HsdConstant.CRAWLER_RETRY_TIMES))
@@ -70,18 +73,6 @@ public class NewsPageProcessor implements PageProcessor{
     }
 
 
-    public boolean validate(String time){
-
-
-        Integer endDate = 20150924;// for test
-
-        if(Integer.valueOf(time) > endDate){
-            return true;
-        }else {
-            return false;
-        }
-    }
-
     /**
      * process the index page
      * fetch the next index page url and
@@ -100,15 +91,15 @@ public class NewsPageProcessor implements PageProcessor{
         boolean gotoNextPage = true;
 
         for(String url : urls){
-            String time = UrlParser.fetchTimeInfo(url, regex).get();
-            //TODO: find better way to fetch time info from content url
-            time = time.substring(1, time.length() - 1);
-            if(validate(time)){
-                // add
-                requests.add(new Request(url));
+            if(filter != null) {
+                if (filter.filtrateURL(url, regex) == FILTER_CODE.INCLUDE) {
+                    requests.add(new Request(url));
+                } else {
+                    gotoNextPage = false;
+                    break;
+                }
             }else {
-                gotoNextPage = false;
-                break;
+                requests.add(new Request(url));
             }
         }
 
@@ -185,7 +176,9 @@ public class NewsPageProcessor implements PageProcessor{
         return urls;
     }
 
-
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
 
     @Override
     public Site getSite() {
