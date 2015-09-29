@@ -12,4 +12,19 @@
     <artifactId>hsd-common</artifactId>
 
 
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring-jdbc.version}</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+
+    </build>
+
+
 </project>

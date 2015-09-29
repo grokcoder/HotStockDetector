@@ -10,8 +10,8 @@ import cn.edu.zju.vlis.bigdata.common.UrlFactory;
 import cn.edu.zju.vlis.bigdata.filter.FILTER_CODE;
 import cn.edu.zju.vlis.bigdata.filter.Filter;
 import com.typesafe.config.Config;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
@@ -32,7 +32,7 @@ import java.util.List;
 
 public class NewsPageProcessor implements PageProcessor{
 
-    private static final Logger LOG = LogManager.getLogger(NewsPageProcessor.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(NewsPageProcessor.class);
 
     private Config conf = null;
     private Site site = null;

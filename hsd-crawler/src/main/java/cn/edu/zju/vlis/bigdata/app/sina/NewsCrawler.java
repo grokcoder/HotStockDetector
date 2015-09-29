@@ -5,7 +5,6 @@ import cn.edu.zju.vlis.bigdata.filter.TimeRangeFilter;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.processor.PageProcessor;
 
 
 /**

@@ -1,0 +1,439 @@
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373236.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373236.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373217.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373217.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373217.shtml
+ INFO main us.codecraft.webmagic.Spider - Spider roll.finance.sina.com.cn started!
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml
+ WARN pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - download page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml error
+org.apache.http.conn.HttpHostConnectException: Connect to roll.finance.sina.com.cn:80 [roll.finance.sina.com.cn/58.63.237.113] failed: Connection refused
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:140)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:314)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:186)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:106)
+	at us.codecraft.webmagic.downloader.HttpClientDownloader.download(HttpClientDownloader.java:92)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:408)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:322)
+	at us.codecraft.webmagic.selector.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:117)
+	... 16 more
+ INFO main us.codecraft.webmagic.Spider - Spider roll.finance.sina.com.cn started!
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/102923378053.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/102923378053.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/102923378053.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/094523377509.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/094523377509.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/094523377509.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/092723377249.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/092723377249.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/092723377249.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/085923376917.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/085923376917.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/085923376917.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/084923376838.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/084923376838.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/084923376838.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/083923376736.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/083923376736.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/083923376736.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/073423376084.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/073423376084.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/073423376084.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/063223375155.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/063223375155.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/063223375155.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/063123375153.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/063123375153.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/063123375153.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/063123375152.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/063123375152.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/063123375152.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/063023375144.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/063023375144.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/063023375144.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/062923375142.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/062923375142.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/062923375142.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/062823375133.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/062823375133.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/062823375133.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/062623375125.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/062623375125.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/062623375125.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/055923374879.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/055923374879.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/055923374879.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/041923374242.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/041923374242.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/041923374242.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/041923374239.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/041923374239.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/041923374239.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/031923373943.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/031923373943.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/031923373943.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/031923373923.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/031923373923.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/031923373923.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/031923373914.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/031923373914.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/031923373914.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/031923373911.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/031923373911.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/031923373911.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/031923373910.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/031923373910.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/031923373910.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/031423373514.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/031423373514.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/031423373514.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/023923373364.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/023923373364.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/023923373364.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373245.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373245.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373245.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373246.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373246.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373246.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373238.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373238.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373238.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373240.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373240.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373240.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373236.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373236.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373236.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373217.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373217.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373217.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373218.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373218.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373218.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373193.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373193.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373193.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373189.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373189.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373189.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/020923373188.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/020923373188.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/020923373188.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013923373110.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013923373110.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013923373110.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013923373088.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013923373088.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013923373088.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013923373077.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013923373077.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013923373077.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013923373069.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013923373069.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013923373069.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013923373067.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013923373067.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013923373067.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013723373051.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013723373051.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013723373051.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_2.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_2.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://roll.finance.sina.com.cn/finance/gncj/gncj/index_2.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013623373050.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013623373050.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013623373050.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013623373048.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013623373048.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013623373048.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013623373044.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013623373044.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013623373044.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013623373040.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013623373040.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013623373040.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/013423373009.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/013423373009.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/013423373009.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/012923372519.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/012923372519.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/012923372519.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/012923372509.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/012923372509.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/012923372509.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/005923372228.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/005923372228.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/005923372228.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/005923372196.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/005923372196.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/005923372196.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/005923372340.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/005923372340.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/005923372340.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/005923372189.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/005923372189.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/005923372189.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/005923372248.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/005923372248.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/005923372248.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/005923372185.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/005923372185.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/005923372185.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/005923372183.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/005923372183.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/005923372183.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150929/001223372168.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150929/001223372168.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150929/001223372168.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/222123372028.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/222123372028.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/222123372028.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/214123371858.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/214123371858.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/214123371858.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/212823371807.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/212823371807.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/212823371807.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/205523371682.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/205523371682.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/205523371682.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/205523371676.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/205523371676.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/205523371676.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/205423371675.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/205423371675.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/205423371675.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/205423371672.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/205423371672.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/205423371672.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/203523371591.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/203523371591.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/203523371591.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/203023371552.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/203023371552.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/203023371552.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/202323371537.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/202323371537.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/202323371537.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/195823371305.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/195823371305.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/195823371305.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/193923371198.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/193923371198.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/193923371198.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/184523371059.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/184523371059.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/184523371059.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/182623370943.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/182623370943.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/182623370943.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/180623371022.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/180623371022.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/180623371022.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/180423370849.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/180423370849.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/180423370849.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/180423370848.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/180423370848.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/180423370848.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/171623370628.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/171623370628.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/171623370628.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/170423370483.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/170423370483.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/170423370483.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/160223369925.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/160223369925.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/160223369925.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/151023369471.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/151023369471.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/151023369471.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/150223369380.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/150223369380.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/150223369380.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/145023369267.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/145023369267.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/145023369267.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/134423368625.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/134423368625.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/134423368625.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/130923368396.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/130923368396.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/130923368396.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_3.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_3.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://roll.finance.sina.com.cn/finance/gncj/gncj/index_3.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/130223368340.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/130223368340.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/130223368340.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/124323368118.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/124323368118.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/124323368118.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/123023368070.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/123023368070.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/123023368070.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/110923368493.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/110923368493.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/110923368493.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/110823367515.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/110823367515.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/110823367515.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/110823367513.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/110823367513.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/110823367513.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/110823367512.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/110823367512.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/110823367512.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/105423367317.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/105423367317.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/105423367317.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/104523367277.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/104523367277.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/104523367277.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/101423366925.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/101423366925.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/101423366925.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/100723366839.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/100723366839.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/100723366839.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/095923366750.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/095923366750.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/095923366750.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/093423366374.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/093423366374.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/093423366374.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/085923365975.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/085923365975.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/085923365975.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/083223365784.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/083223365784.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/083223365784.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/074323365082.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/074323365082.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/074323365082.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/072623364987.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/072623364987.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/072623364987.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/072623364986.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/072623364986.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/072623364986.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/072023364853.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/072023364853.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/072023364853.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/042023363822.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/042023363822.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/042023363822.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/021523363518.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/021523363518.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/021523363518.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/020023363342.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/020023363342.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/020023363342.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/020023363336.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/020023363336.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/020023363336.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/020023363378.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/020023363378.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/020023363378.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/014523363077.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/014523363077.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/014523363077.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/014523363068.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/014523363068.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/014523363068.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011923362947.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011923362947.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011923362947.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011823362939.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011823362939.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011823362939.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011823362933.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011823362933.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011823362933.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011823362923.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011823362923.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011823362923.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011823362920.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011823362920.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011823362920.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011823362918.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011823362918.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011823362918.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011423362812.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011423362812.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011423362812.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011423362766.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011423362766.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011423362766.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011423362749.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011423362749.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011423362749.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011423362745.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011423362745.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011423362745.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011023362678.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011023362678.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011023362678.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/011023362676.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/011023362676.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/011023362676.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/010023362485.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/010023362485.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/010023362485.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/010023362620.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/010023362620.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/010023362620.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_4.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://roll.finance.sina.com.cn/finance/gncj/gncj/index_4.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://roll.finance.sina.com.cn/finance/gncj/gncj/index_4.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/010023362612.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/010023362612.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/010023362612.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/010023362594.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/010023362594.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/010023362594.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/005923362472.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/005923362472.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/005923362472.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/005923362457.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/005923362457.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/005923362457.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/005923362443.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/005923362443.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/005923362443.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/005923362431.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/005923362431.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/005923362431.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/005923362410.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/005923362410.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/005923362410.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/005923362389.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/005923362389.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/005923362389.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/005923362386.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/005923362386.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/005923362386.shtml
+ INFO pool-1-thread-1 us.codecraft.webmagic.downloader.HttpClientDownloader - downloading page http://finance.sina.com.cn/china/20150928/003423362369.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - Start process page http://finance.sina.com.cn/china/20150928/003423362369.shtml
+ INFO pool-1-thread-1 cn.edu.zju.vlis.bigdata.app.sina.NewsPageProcessor - process complete : http://finance.sina.com.cn/china/20150928/003423362369.shtml
