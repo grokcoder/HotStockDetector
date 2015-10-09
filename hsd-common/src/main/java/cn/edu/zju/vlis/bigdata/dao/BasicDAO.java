@@ -6,27 +6,23 @@ import com.typesafe.config.ConfigFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.List;
+import java.sql.*;
 
 /**
  * Created by wangxiaoyi on 15/10/9.
  *
  * manipulate the database related to  crawler
  */
-public class CrawlerDAO implements DAO{
+public class BasicDAO implements DAO{
 
-    public static final Logger LOG = LoggerFactory.getLogger(CrawlerDAO.class);
+    public static final Logger LOG = LoggerFactory.getLogger(BasicDAO.class);
 
     public static Config config = null;
 
 
-    private Connection conn = null;
+    public Connection conn = null;
 
-    public CrawlerDAO(){
+    public BasicDAO(){
         config = ConfigFactory.load();
         init();
     }
@@ -53,42 +49,48 @@ public class CrawlerDAO implements DAO{
 
     @Override
     public void update(String sql) {
-
+        execute(sql);
     }
 
     @Override
     public void execute(String sql) {
-
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.execute(sql);
+        }catch (SQLException sqle){
+            LOG.error("Execute sql :  " + sql + " error ", sqle);
+            try {
+                conn.close();
+            }catch (SQLException se){
+                LOG.error("Connection close error ", se);
+            }
+        }
     }
 
     @Override
     public void insert(String sql) {
-
+       execute(sql);
     }
 
     @Override
-    public List<Object> query(String sql) {
-        return null;
-    }
+    public ResultSet query(String sql) {
 
+        ResultSet rs = null;
 
-    public static void main(String []args)throws Exception{
-        CrawlerDAO dao = new CrawlerDAO();
-        Connection conn = dao.conn;
-
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select * from customer");
-
-        while (rs.next()){
-            int cid = rs.getInt(1);
-            String fname = rs.getString(2);
-            String lname = rs.getString(3);
-            System.out.println(cid + " " + fname + " " + lname);
+        try {
+            Statement stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+        }catch (SQLException sqle){
+            LOG.error("Query error : ", sqle);
+            try {
+                conn.close();
+            }catch (SQLException se){
+                LOG.error("Connection close error ", se);
+            }
         }
-
-
-
+        return rs;
     }
+
 
 
 }

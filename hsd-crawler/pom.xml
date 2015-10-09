@@ -24,6 +24,12 @@
             <version>${akkaconfig.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.edu.zju.vlis.bigdata</groupId>
+            <artifactId>hsd-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>us.codecraft</groupId>
