@@ -21,4 +21,4 @@ target
 
 scripts/*
 
-logs/*.log
+logs/*
