@@ -18,7 +18,15 @@ public class PageClassifier {
             }else {
                 return PAGE_TYPE.SINA_FINANCIAL_CONTENT_PAGE;
             }
-        }else {
+        }else if(url.contains("xueqiu")){
+            if(url.contains("stcoklist.json")) {
+                return PAGE_TYPE.XUEQIU_STOCKS_CONTENT_PAGE;
+            }else
+            {
+                return PAGE_TYPE.XUEQIU_STOCKS_CONTENT_PAGE;//todo
+            }
+        }
+        else {
             return null;//todo
         }
     }
