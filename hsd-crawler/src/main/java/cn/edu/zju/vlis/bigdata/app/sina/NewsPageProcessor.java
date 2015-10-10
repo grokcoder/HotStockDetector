@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Created by wangxiaoyi on 15/9/24.
  *
- * NewsPageProcessor responsible for parse the finance news page
+ * XueQiuPageProcessor responsible for parse the finance news page
  * and fetch the info needed
  *
  */

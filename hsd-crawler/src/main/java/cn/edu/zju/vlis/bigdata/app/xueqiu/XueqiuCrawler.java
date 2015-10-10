@@ -11,7 +11,7 @@ public class XueqiuCrawler {
     private static Config conf = null;
     public static void main(String []args){
         conf = ConfigFactory.load();
-        Spider.create(new NewsPageProcessor(conf))
+        Spider.create(new XueQiuPageProcessor(conf))
                 .addUrl("http://xueqiu.com/hq#exchange=CN&firstName=1&secondName=1_0")
                 .thread(1)
                 .run();

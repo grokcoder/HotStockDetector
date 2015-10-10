@@ -7,8 +7,8 @@ import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.common.UrlFactory;
 import cn.edu.zju.vlis.bigdata.common.UrlParser;
 import com.typesafe.config.Config;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
@@ -23,14 +23,14 @@ import java.util.List;
 /**
  * Created by zhuohaizhen on 15-10-9.
  */
-public class NewsPageProcessor implements PageProcessor{
+public class XueQiuPageProcessor implements PageProcessor{
 
-    private static final Logger LOG = LogManager.getLogger(NewsPageProcessor.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(XueQiuPageProcessor.class);
 
     private Config conf = null;
     private Site site = null;
 
-    public NewsPageProcessor(Config config){
+    public XueQiuPageProcessor(Config config){
         this.conf = config;
         site = Site.me()
                 .setRetryTimes(conf.getInt(HsdConstant.CRAWLER_RETRY_TIMES))
@@ -40,7 +40,7 @@ public class NewsPageProcessor implements PageProcessor{
     }
 
     //just for tests
-    public NewsPageProcessor(){};
+    public XueQiuPageProcessor(){};
 
 
     @Override
@@ -51,8 +51,6 @@ public class NewsPageProcessor implements PageProcessor{
 
         PAGE_TYPE type = PageClassifier.getPageType(currUrl);
         switch (type){
-            case SINA_FINANCIAL_INDEX_PAGE: processIndexPage(page);
-                break;
             case XUEQIU_STOCKS_CONTENT_PAGE: processContentPage(page);
                 break;
         }
