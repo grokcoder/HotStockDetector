@@ -15,4 +15,8 @@ public class HsdConstant {
 
     public static final String CRAWLER_USER_AGENT = "hsd-crawler.userAgent";
 
+
+    /**store the data use model rather than field*/
+    public static final String MODEL = "result.parsed.from.page";
+
 }

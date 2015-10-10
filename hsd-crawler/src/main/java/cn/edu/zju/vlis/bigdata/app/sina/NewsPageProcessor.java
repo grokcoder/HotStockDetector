@@ -3,12 +3,15 @@ package cn.edu.zju.vlis.bigdata.app.sina;
 import cn.edu.zju.vlis.bigdata.NAV_BAR;
 import cn.edu.zju.vlis.bigdata.PAGE_TYPE;
 import cn.edu.zju.vlis.bigdata.PageClassifier;
+import cn.edu.zju.vlis.bigdata.app.sina.model.News;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.common.UrlFactory;
-import cn.edu.zju.vlis.bigdata.common.UrlParser;
+
+import cn.edu.zju.vlis.bigdata.filter.FILTER_CODE;
+import cn.edu.zju.vlis.bigdata.filter.Filter;
 import com.typesafe.config.Config;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
@@ -29,12 +32,15 @@ import java.util.List;
 
 public class NewsPageProcessor implements PageProcessor{
 
-    private static final Logger LOG = LogManager.getLogger(NewsPageProcessor.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(NewsPageProcessor.class);
 
     private Config conf = null;
     private Site site = null;
 
+    private Filter filter = null;
+
     public NewsPageProcessor(Config config){
+
         this.conf = config;
         site = Site.me()
                 .setRetryTimes(conf.getInt(HsdConstant.CRAWLER_RETRY_TIMES))
@@ -60,14 +66,12 @@ public class NewsPageProcessor implements PageProcessor{
                 break;
             case SINA_FINANCIAL_CONTENT_PAGE: processContentPage(page);
                 break;
+            case NOT_DEFINE:LOG.warn(currUrl + " no parser defined yet ! ");
+                break;
         }
         LOG.info("process complete : " + currUrl);
     }
 
-
-    public boolean validate(String time){
-        return true;
-    }
 
     /**
      * process the index page
@@ -87,15 +91,15 @@ public class NewsPageProcessor implements PageProcessor{
         boolean gotoNextPage = true;
 
         for(String url : urls){
-            String time = UrlParser.fetchTimeInfo(url, regex).get();
-            //TODO: find better way to fetch time info from content url
-            time = time.substring(1, time.length() - 1);
-            if(validate(time)){
-                // add
-                requests.add(new Request(url));
+            if(filter != null) {
+                FILTER_CODE code = filter.filtrateURL(url, regex);
+                switch (code){
+                    case INCLUDE: requests.add(new Request(url));break;
+                    case EXCLUDE_NOT_GO_TO_NEXT:gotoNextPage = false; break;
+                    case EXCLUED_GO_TO_NEXT:gotoNextPage = true;break;
+                }
             }else {
-                gotoNextPage = false;
-                break;
+                requests.add(new Request(url));
             }
         }
 
@@ -103,19 +107,63 @@ public class NewsPageProcessor implements PageProcessor{
             String nextIndexPage = getNextPageUrl(page.getUrl().get(), NAV_BAR.GNCJ);
             requests.add(new Request(nextIndexPage));
         }
-
-
-        //test
-        requests.forEach(request -> LOG.info(request.getUrl()));
-
+        // add more request we fetched
+        requests.forEach(request -> page.addTargetRequest(request));
 
     }
 
+    /**
+     * process the page and fetch the news info from the page
+     * @param page
+     */
     public void processContentPage(Page page){
-        //todo: fetch info form page
+
+        News news = new News();
+        Html html = page.getHtml();
+
+        news.setUrl(page.getUrl().get());
+
+        news.setTitle(html.xpath("h1[@id=artibodyTitle]/text()").get());
+
+        //extract news content
+        List<String> phases = html.xpath("div[@id=artibody]/p/tidyText()").all();
+        StringBuilder body = new StringBuilder();
+        phases.forEach(p -> body.append(p));
+
+        //todo:try better solution
+        String cleanBody = body.toString();
+        cleanBody.replace("\"", "");
+        cleanBody.replace("'", "");
+        cleanBody.replace("\\", "");
+        cleanBody.replace("/", "");
+        cleanBody.replace("“","");
+        cleanBody.replace("‘","");
+        //cleanBody.replace("<", "");
+
+
+        news.setBody(cleanBody);
+
+        news.setPublishDate(html.xpath("div[@class=page-info]/span[@class=time-source]/text()").get());
+
+        news.setPublishMedia(html.xpath("meta[@name=mediaid]/@content").get());
+
+        //extract keywords
+        news.setKeywords(html.xpath("meta[@name=keywords]/@content").get());
+
+        news.setTags(html.xpath("meta[@name=tags]/@content").get());
+
+
+        page.putField(HsdConstant.MODEL, news);
+
     }
 
-
+    /**
+     * construct next crawled url based on the current url
+     * and the navigation bar
+     * @param currUrl current page url
+     * @param nav_bar navigation bar type
+     * @return
+     */
     public String getNextPageUrl(String currUrl, NAV_BAR nav_bar){
         int startIndex = currUrl.indexOf('_');
         int endIndex = currUrl.indexOf(".shtml");
@@ -140,7 +188,9 @@ public class NewsPageProcessor implements PageProcessor{
         return urls;
     }
 
-
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
 
     @Override
     public Site getSite() {

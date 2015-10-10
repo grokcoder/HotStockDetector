@@ -18,3 +18,7 @@ hs_err_pid*
 .target/*
 *.iml
 target
+
+scripts/*
+
+logs/*

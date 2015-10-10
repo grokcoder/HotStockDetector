@@ -16,26 +16,18 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
 
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
-            <version>1.3.0</version>
+            <version>${akkaconfig.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.edu.zju.vlis.bigdata</groupId>
+            <artifactId>hsd-common</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
 
@@ -48,6 +40,10 @@
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>org.sl4j</artifactId>
+                    <groupId>slf4j-api</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
