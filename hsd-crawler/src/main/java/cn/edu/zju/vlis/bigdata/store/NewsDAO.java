@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.Charset;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
@@ -50,19 +51,20 @@ public class NewsDAO extends BasicDAO{
      * @param news
      */
     public void insertRecord(News news){
-        StringBuilder sql = new StringBuilder("insert into news(title, url, pub_date, pub_media, keywords, tags, body) values(");
-        sql.append("\"").append(news.getTitle()).append("\",");
-        sql.append("\"").append(news.getUrl()).append("\",");
-        sql.append("\"").append(news.getPublishDate()).append("\",");
-        sql.append("\"").append(news.getPublishMedia()).append("\",");
-        sql.append("\"").append(news.getKeywords()).append("\",");
-        sql.append("\"").append(news.getTags()).append("\",");
-        sql.append("\"").append(news.getBody()).append("\"");
-        sql.append(")");
-
-
-        System.out.println(sql.toString());
-        insert(sql.toString());
+        StringBuilder sql = new StringBuilder("insert into news(title, url, pub_date, pub_media, keywords, tags, body) values(?,?,?,?,?,?,?)");
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql.toString());
+            ps.setString(1, news.getTitle());
+            ps.setString(2, news.getUrl());
+            ps.setString(3, news.getPublishDate());
+            ps.setString(4, news.getPublishMedia());
+            ps.setString(5, news.getKeywords());
+            ps.setString(6, news.getTags());
+            ps.setString(7, news.getBody());
+            ps.execute();
+        }catch (SQLException sqle){
+            LOG.error("insert error", sqle);
+        }
     }
 
 

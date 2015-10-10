@@ -25,8 +25,12 @@ public class TimeRangeFilter implements Filter{
         if(t <= endTime && t >= startTime){
             return FILTER_CODE.INCLUDE;
         }else {
-            return FILTER_CODE.EXCLUDE;
+            if(t < startTime)
+                return FILTER_CODE.EXCLUDE_NOT_GO_TO_NEXT;
+            if(t > endTime)
+                return FILTER_CODE.EXCLUED_GO_TO_NEXT;
         }
+        return FILTER_CODE.EXCLUDE_NOT_GO_TO_NEXT;
     }
 
 }

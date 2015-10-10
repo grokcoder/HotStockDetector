@@ -92,11 +92,11 @@ public class NewsPageProcessor implements PageProcessor{
 
         for(String url : urls){
             if(filter != null) {
-                if (filter.filtrateURL(url, regex) == FILTER_CODE.INCLUDE) {
-                    requests.add(new Request(url));
-                } else {
-                    gotoNextPage = false;
-                    break;
+                FILTER_CODE code = filter.filtrateURL(url, regex);
+                switch (code){
+                    case INCLUDE: requests.add(new Request(url));break;
+                    case EXCLUDE_NOT_GO_TO_NEXT:gotoNextPage = false; break;
+                    case EXCLUED_GO_TO_NEXT:gotoNextPage = true;break;
                 }
             }else {
                 requests.add(new Request(url));
@@ -129,7 +129,19 @@ public class NewsPageProcessor implements PageProcessor{
         List<String> phases = html.xpath("div[@id=artibody]/p/tidyText()").all();
         StringBuilder body = new StringBuilder();
         phases.forEach(p -> body.append(p));
-        news.setBody(body.toString());
+
+        //todo:try better solution
+        String cleanBody = body.toString();
+        cleanBody.replace("\"", "");
+        cleanBody.replace("'", "");
+        cleanBody.replace("\\", "");
+        cleanBody.replace("/", "");
+        cleanBody.replace("“","");
+        cleanBody.replace("‘","");
+        //cleanBody.replace("<", "");
+
+
+        news.setBody(cleanBody);
 
         news.setPublishDate(html.xpath("div[@class=page-info]/span[@class=time-source]/text()").get());
 

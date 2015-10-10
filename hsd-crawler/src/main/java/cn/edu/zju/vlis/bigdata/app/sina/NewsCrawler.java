@@ -19,13 +19,13 @@ public class NewsCrawler {
 
     public static void main(String []args){
         conf = ConfigFactory.load();
-        Filter filter = new TimeRangeFilter(20151008, 20151009);
+        Filter filter = new TimeRangeFilter(20140908, 20151008);
 
         NewsPageProcessor npp = new NewsPageProcessor(conf);
         npp.setFilter(filter);
 
         Spider.create(npp)
-                .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")
+                .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_282.shtml")
                 .addPipeline(new NewsDBPipeline())
                 .thread(1)
                 .run();
