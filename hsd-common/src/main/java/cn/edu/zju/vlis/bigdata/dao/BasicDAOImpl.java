@@ -7,23 +7,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.*;
-import java.util.List;
 
 /**
  * Created by wangxiaoyi on 15/10/9.
  *
  * manipulate the database related to  crawler
  */
-public class BasicDAO implements DAO{
+public class BasicDAOImpl implements DAO{
 
-    public static final Logger LOG = LoggerFactory.getLogger(BasicDAO.class);
+    public static final Logger LOG = LoggerFactory.getLogger(BasicDAOImpl.class);
 
     public static Config config = null;
 
 
     public Connection conn = null;
 
-    public BasicDAO(){
+    public BasicDAOImpl(){
         config = ConfigFactory.load();
         init();
     }

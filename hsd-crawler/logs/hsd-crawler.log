@@ -1,0 +1,6 @@
+ INFO main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1e643faf: startup date [Tue Oct 13 14:25:12 CST 2015]; root of context hierarchy
+ INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-jdbc.xml]
+ INFO main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1e643faf: startup date [Tue Oct 13 14:30:31 CST 2015]; root of context hierarchy
+ INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-jdbc.xml]
+ INFO main org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@43a25848: startup date [Tue Oct 13 14:31:42 CST 2015]; root of context hierarchy
+ INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-jdbc.xml]

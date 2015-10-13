@@ -1,88 +1,65 @@
 package cn.edu.zju.vlis.bigdata.store;
 
 import cn.edu.zju.vlis.bigdata.app.sina.model.News;
-import cn.edu.zju.vlis.bigdata.dao.BasicDAO;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import cn.edu.zju.vlis.bigdata.dao.SpringDAOImpl;
 
-import java.nio.charset.Charset;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by wangxiaoyi on 15/10/9.
+ * Created by wangxiaoyi on 15/10/13.
+ * dao for news table in hsd database
  */
-public class NewsDAO extends BasicDAO{
-
-    public static final Logger LOG = LoggerFactory.getLogger(NewsDAO.class);
 
 
-    /**
-     * fetch the data from the database
-     * @param sql
-     * @return
-     */
-    public List<News> executeQuery(String sql){
-        List<News> newsList = new LinkedList<>();
-        ResultSet rs = query(sql);
-        try {
-            while (rs.next()) {
-                News news = new News();
-                news.setTitle(rs.getString(2));
-                news.setUrl(rs.getString(3));
-                news.setPublishDate(rs.getString(4));
-                news.setPublishMedia(rs.getString(5));
-                news.setKeywords(rs.getString(6));
-                news.setTags(rs.getString(7));
-                news.setBody(rs.getString(8));
-                newsList.add(news);
-            }
-        }catch (SQLException sqle){
-            LOG.error("Query error : ", sqle);
-        }
-        return newsList;
-    }
+public class NewsDAO extends SpringDAOImpl{
 
     /**
-     * insert a piece of news into the database
+     * insert a record into the database
      * @param news
      */
     public void insertRecord(News news){
-        StringBuilder sql = new StringBuilder("insert into news(title, url, pub_date, pub_media, keywords, tags, body) values(?,?,?,?,?,?,?)");
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql.toString());
-            ps.setString(1, news.getTitle());
-            ps.setString(2, news.getUrl());
-            ps.setString(3, news.getPublishDate());
-            ps.setString(4, news.getPublishMedia());
-            ps.setString(5, news.getKeywords());
-            ps.setString(6, news.getTags());
-            ps.setString(7, news.getBody());
-            ps.execute();
-        }catch (SQLException sqle){
-            LOG.error("insert error", sqle);
-        }
+        String sql =
+                "insert into news(title, url, pub_date, pub_media, keywords, tags, body) values(?,?,?,?,?,?,?)";
+
+        jdbcTemplate.update(sql,
+                news.getTitle(),
+                news.getUrl(),
+                news.getPublishDate(),
+                news.getPublishMedia(),
+                news.getKeywords(),
+                news.getTags(),
+                news.getBody());
     }
 
-
-
     /**
-     * insert the record into the database in a batch way
+     * batch insert records into the databases
      * @param newsRecords
      */
     public void batchInertRecord(List<News> newsRecords){
-        newsRecords.forEach(news -> insertRecord(news));
+
+        String sql =
+                "insert into news(title, url, pub_date, pub_media, keywords, tags, body) values(?,?,?,?,?,?,?)";
+
+        List<Object[]> batchArgs = new LinkedList<>();
+        newsRecords.forEach(news -> {
+            Object[] objects = new Object[]{
+                    news.getTitle(),
+                    news.getUrl(),
+                    news.getPublishDate(),
+                    news.getPublishMedia(),
+                    news.getKeywords(),
+                    news.getTags(),
+                    news.getBody()};
+            batchArgs.add(objects);
+        });
+
+        jdbcTemplate.batchUpdate(sql, batchArgs);
     }
 
-    public static void main(String []args){
-        NewsDAO dao = new NewsDAO();
-        List<News> newsList = dao.executeQuery("select * from news");
-        int a = 0;
-        a ++;
-    }
 
+    public void execute(String sql) {
+        jdbcTemplate.execute(sql);
+    }
 
 }

@@ -1,52 +1,23 @@
 package cn.edu.zju.vlis.bigdata;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
-
-import javax.sql.DataSource;
+import cn.edu.zju.vlis.bigdata.dao.SpringDAOImpl;
 
 /**
  * Created by wangxiaoyi on 15/9/28.
  */
-public class Application extends JdbcDaoSupport{
 
 
-    private JdbcTemplate jdbcTemplate;
+public class Application extends SpringDAOImpl{
 
 
-    @Override
-    protected JdbcTemplate createJdbcTemplate(DataSource dataSource) {
-        return super.createJdbcTemplate(dataSource);
+    public void test(){
+        jdbcTemplate.execute("select * from test");
     }
-
-    public void execute(String sql){
-        jdbcTemplate.execute(sql);
-    }
-
-
-
-
-
 
 
 
     public static void main(String []args){
-
-
-
-
-        Application crawlerEventDao = new Application();
-        crawlerEventDao.execute("select * from test");
-
-
-
-
-
-
-
-
-
-
+      new Application().test();
     }
 
 }
