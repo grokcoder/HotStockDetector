@@ -13,6 +13,8 @@ import java.sql.*;
  *
  * manipulate the database related to  crawler
  */
+
+@Deprecated
 public class BasicDAOImpl implements DAO{
 
     public static final Logger LOG = LoggerFactory.getLogger(BasicDAOImpl.class);

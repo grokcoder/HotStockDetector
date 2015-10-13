@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 /**
  * Created by wangxiaoyi on 15/10/9.
  */
+@Deprecated
 public interface DAO {
 
 
