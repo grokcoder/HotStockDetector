@@ -81,7 +81,7 @@ public class XueQiuPageProcessor implements PageProcessor {
             String symbol = page.getUrl().toString().split("/")[4];
             stock.setSymbol(symbol);
             if(pageList.size()<3){
-                LOG.error("这个page要删掉");
+                LOG.error("the page should be deleted");
                 stockDAO.deleteRecord(stock);
                 return;
             }
