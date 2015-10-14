@@ -23,7 +23,7 @@ public class PageClassifier {
                 return PAGE_TYPE.XUEQIU_STOCKS_CONTENT_PAGE;
             }else
             {
-                return PAGE_TYPE.XUEQIU_STOCKS_CONTENT_PAGE;//todo
+                return PAGE_TYPE.XUEQIU_STOCKS_DETAILS_PAGE;//todo
             }
         } else {
             //todo: more accuratre
