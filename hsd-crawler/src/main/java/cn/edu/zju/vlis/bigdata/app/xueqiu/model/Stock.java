@@ -1,9 +1,5 @@
 package cn.edu.zju.vlis.bigdata.app.xueqiu.model;
 
-import cn.edu.zju.vlis.bigdata.store.StockDAO;
-
-import java.util.List;
-
 /**
  * Created by zhuohaizhen on 15-10-12.
  *

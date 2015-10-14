@@ -1,4 +1,4 @@
-package cn.edu.zju.vlis.bigdata.store;
+package cn.edu.zju.vlis.bigdata.app.sina;
 
 import cn.edu.zju.vlis.bigdata.app.sina.model.News;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
@@ -9,11 +9,13 @@ import us.codecraft.webmagic.pipeline.Pipeline;
 /**
  * Created by wangxiaoyi on 15/10/9.
  */
-public class NewsDBPipeline implements Pipeline {
+public class NewsPipeline implements Pipeline {
 
     private NewsDAO dao = null;
 
-    public NewsDBPipeline(){
+
+
+    public NewsPipeline(){
         dao = new NewsDAO();
     }
 

@@ -2,7 +2,6 @@ package cn.edu.zju.vlis.bigdata.app.sina;
 
 import cn.edu.zju.vlis.bigdata.filter.Filter;
 import cn.edu.zju.vlis.bigdata.filter.TimeRangeFilter;
-import cn.edu.zju.vlis.bigdata.store.NewsDBPipeline;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import us.codecraft.webmagic.Spider;
@@ -39,7 +38,7 @@ public class NewsSpider {
 
         Spider.create(npp)
                 .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")
-                .addPipeline(new NewsDBPipeline())
+                .addPipeline(new NewsPipeline())
                 .thread(1)
                 .run();
     }

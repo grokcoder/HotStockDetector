@@ -152,7 +152,6 @@ public class NewsPageProcessor implements PageProcessor{
 
         news.setTags(html.xpath("meta[@name=tags]/@content").get());
 
-
         page.putField(HsdConstant.MODEL, news);
 
     }

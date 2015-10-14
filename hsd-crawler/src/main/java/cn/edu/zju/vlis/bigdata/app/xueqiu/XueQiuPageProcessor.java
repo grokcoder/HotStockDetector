@@ -4,7 +4,6 @@ import cn.edu.zju.vlis.bigdata.PAGE_TYPE;
 import cn.edu.zju.vlis.bigdata.PageClassifier;
 import cn.edu.zju.vlis.bigdata.app.xueqiu.model.Stock;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
-import cn.edu.zju.vlis.bigdata.store.StockDAO;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -38,6 +37,13 @@ public class XueQiuPageProcessor implements PageProcessor {
                 .setUserAgent(conf.getString(HsdConstant.CRAWLER_USER_AGENT));
     }
 
+<<<<<<< HEAD
+=======
+    //just for tests
+    public XueQiuPageProcessor() {
+    };
+
+>>>>>>> 2a1ed4800e7e40c75b21af506d33aa13d3ea24e4
 
     @Override
     public void process(Page page) {

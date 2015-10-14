@@ -1,4 +1,4 @@
-package cn.edu.zju.vlis.bigdata.store;
+package cn.edu.zju.vlis.bigdata.app.sina;
 
 import cn.edu.zju.vlis.bigdata.app.sina.model.News;
 import cn.edu.zju.vlis.bigdata.dao.SpringDAOImpl;
