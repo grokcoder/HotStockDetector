@@ -31,13 +31,13 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>4.2.1.RELEASE</version>
+            <version>${spring-test.version}</version>
         </dependency>
 
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
+            <version>${dbcp.version}</version>
         </dependency>
 
 
@@ -52,8 +52,6 @@
             <artifactId>config</artifactId>
             <version>${akkaconfig.version}</version>
         </dependency>
-
-
 
     </dependencies>
 

@@ -7,15 +7,28 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import us.codecraft.webmagic.Spider;
 
-
 /**
  * Created by wangxiaoyi on 15/9/24.
  *
  * start the news crawler
  */
-public class NewsCrawler {
+
+
+public class NewsSpider {
 
     private static Config conf = null;
+
+    private Filter filter = null;
+
+    public void setConfig(Config conf){
+        this.conf = conf;
+    }
+
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+
 
     public static void main(String []args){
         conf = ConfigFactory.load();
