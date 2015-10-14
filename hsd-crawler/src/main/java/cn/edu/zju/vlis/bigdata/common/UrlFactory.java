@@ -20,4 +20,27 @@ public class UrlFactory {
         String tail = ".shtml";
         return root + pageNum + tail;
     }
+
+    /**
+     * @param className the name for the class of the stocks, such as: class, industry,
+     * @return url for fetch the json type data of className
+     */
+    public static String getSinaStockClassUrl(String className){
+        String root = "http://money.finance.sina.com.cn/q/view/newFLJK.php?param=";
+        return root + className;
+    }
+
+    /**
+     *
+     * @param className
+     * @param numOfStocks num of stocks to fetch under type of className
+     * @return url for fetch json type data contains stocks under type of className
+     */
+    public static String getClassToStocksUrl(String className, int numOfStocks){
+        String root = "http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?";
+        return root + "&node=" + className + "&num=" + numOfStocks;
+
+    }
+
+
 }
