@@ -1,5 +1,6 @@
 package cn.edu.zju.vlis.bigdata.store;
 
+import cn.edu.zju.vlis.bigdata.app.sina.NewsDAO;
 import cn.edu.zju.vlis.bigdata.app.sina.model.News;
 import org.junit.Test;
 

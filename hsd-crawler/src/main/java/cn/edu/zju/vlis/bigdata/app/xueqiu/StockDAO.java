@@ -1,4 +1,4 @@
-package cn.edu.zju.vlis.bigdata.store;
+package cn.edu.zju.vlis.bigdata.app.xueqiu;
 
 
 import cn.edu.zju.vlis.bigdata.app.xueqiu.model.Stock;

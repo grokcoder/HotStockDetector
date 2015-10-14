@@ -4,7 +4,6 @@ import cn.edu.zju.vlis.bigdata.PAGE_TYPE;
 import cn.edu.zju.vlis.bigdata.PageClassifier;
 import cn.edu.zju.vlis.bigdata.app.xueqiu.model.Stock;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
-import cn.edu.zju.vlis.bigdata.store.StockDAO;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -40,9 +39,7 @@ public class XueQiuPageProcessor implements PageProcessor {
 
     //just for tests
     public XueQiuPageProcessor() {
-    }
-
-    ;
+    };
 
 
     @Override
