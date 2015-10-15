@@ -9,7 +9,7 @@ import us.codecraft.webmagic.Spider;
 /**
  * Created by zhuohaizhen on 15-10-9.
  */
-public class XueqiuCrawler {
+public class XueQiuCrawler {
     private static Config conf = null;
     public static void main(String []args){
         conf = ConfigFactory.load();

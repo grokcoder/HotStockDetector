@@ -37,10 +37,13 @@ public class XueQiuPageProcessor implements PageProcessor {
                 .setUserAgent(conf.getString(HsdConstant.CRAWLER_USER_AGENT));
     }
 
+<<<<<<< HEAD
+=======
     //just for tests
     public XueQiuPageProcessor() {
     };
 
+>>>>>>> 2a1ed4800e7e40c75b21af506d33aa13d3ea24e4
 
     @Override
     public void process(Page page) {
@@ -61,20 +64,8 @@ public class XueQiuPageProcessor implements PageProcessor {
 
     }
 
-    public boolean validate(String time) {
-        return true;
-    }
 
-    /**
-     * process the index page
-     * fetch the next index page url and
-     * content urls in current index page
-     *
-     * @param page curr page
-     */
-    public void processIndexPage(Page page) {
-        //todo:
-    }
+
 
 
 
@@ -86,11 +77,6 @@ public class XueQiuPageProcessor implements PageProcessor {
         String sb;
         if (null == page.getUrl().regex(regex_url).toString()) {
             LOG.info("It is first page");
-            /*List symbolList = stockDAO.getAllSymbols();
-            for (int i = 0; i < symbolList.size(); i++) {
-                Map stockSymbol = (Map) symbolList.get(i);
-                page.addTargetRequest(regex_url + stockSymbol.get("symbol").toString());
-            }*/
             List symbolList = new ArrayList<String>();
             symbolList.add("SH600019");
             for (int i = 0; i < symbolList.size(); i++) {
@@ -101,7 +87,7 @@ public class XueQiuPageProcessor implements PageProcessor {
             String symbol = page.getUrl().toString().split("/")[4];
             stock.setSymbol(symbol);
             if(pageList.size()<3){
-                LOG.error("这个page要删掉");
+                LOG.error("the page should be deleted");
                 stockDAO.deleteRecord(stock);
                 return;
             }
