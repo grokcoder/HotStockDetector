@@ -1,4 +1,4 @@
-package cn.edu.zju.vlis.bigdata.app.stock;
+package cn.edu.zju.vlis.bigdata.app.stock.model;
 
 import java.util.List;
 

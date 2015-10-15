@@ -37,13 +37,10 @@ public class XueQiuPageProcessor implements PageProcessor {
                 .setUserAgent(conf.getString(HsdConstant.CRAWLER_USER_AGENT));
     }
 
-<<<<<<< HEAD
-=======
     //just for tests
     public XueQiuPageProcessor() {
     };
 
->>>>>>> 2a1ed4800e7e40c75b21af506d33aa13d3ea24e4
 
     @Override
     public void process(Page page) {

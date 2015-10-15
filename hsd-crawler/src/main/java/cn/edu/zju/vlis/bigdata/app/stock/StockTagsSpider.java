@@ -5,6 +5,10 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import us.codecraft.webmagic.Spider;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+
 /**
  * Created by wangxiaoyi on 15/10/14.
  *
@@ -22,11 +26,18 @@ public class StockTagsSpider {
         conf = ConfigFactory.load();
         SinaStockPageProcessor processor = new SinaStockPageProcessor(conf);
 
-        Spider.create(processor)
+        ExecutorService service = Executors.newCachedThreadPool();
+
+
+        Spider spider = Spider.create(processor)
                 .addUrl(new String[]{UrlFactory.getSinaStockClassUrl("class"), UrlFactory.getSinaStockClassUrl("factory")})
                 .thread(1)
-                .addPipeline(new SinaStockPipeLine())
-                .run();
+                .addPipeline(new SinaStockPipeLine(service));
+
+        spider.setExecutorService(service);
+        spider.run();
+
+
     }
 
 

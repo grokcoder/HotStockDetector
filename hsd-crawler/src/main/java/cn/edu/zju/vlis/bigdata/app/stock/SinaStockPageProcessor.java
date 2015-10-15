@@ -2,6 +2,7 @@ package cn.edu.zju.vlis.bigdata.app.stock;
 
 import cn.edu.zju.vlis.bigdata.PAGE_TYPE;
 import cn.edu.zju.vlis.bigdata.PageClassifier;
+import cn.edu.zju.vlis.bigdata.app.stock.model.TagToStocks;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.common.UrlFactory;
 import com.alibaba.fastjson.JSON;
@@ -89,8 +90,6 @@ public class SinaStockPageProcessor  implements PageProcessor{
             String classChineseName =  fields[1];
             int numOfStocks = 10000;
                     //Integer.valueOf(fields[3]);
-
-
             System.out.println(className + "\t" + classChineseName + "\t" + numOfStocks);
 
             Request request = new Request(UrlFactory.getClassToStocksUrl(className, numOfStocks));
@@ -120,7 +119,6 @@ public class SinaStockPageProcessor  implements PageProcessor{
         page.putField(HsdConstant.MODEL, tagToStocks);
 
     }
-
 
 
     /**

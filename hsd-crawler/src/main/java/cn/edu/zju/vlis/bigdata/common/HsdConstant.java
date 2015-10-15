@@ -23,4 +23,6 @@ public class HsdConstant {
 
     public static final String SINA_STOCK_TAGS_CHARSET = "GB2312";
 
+
+
 }
