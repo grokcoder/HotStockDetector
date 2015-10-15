@@ -25,6 +25,7 @@ public class StockTagsSpider {
         Spider.create(processor)
                 .addUrl(new String[]{UrlFactory.getSinaStockClassUrl("class"), UrlFactory.getSinaStockClassUrl("factory")})
                 .thread(1)
+                .addPipeline(new SinaStockPipeLine())
                 .run();
     }
 

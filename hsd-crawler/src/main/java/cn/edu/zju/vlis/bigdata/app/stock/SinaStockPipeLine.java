@@ -19,5 +19,8 @@ public class SinaStockPipeLine implements Pipeline{
     @Override
     public void process(ResultItems resultItems, Task task) {
 
+        System.out.println("result size" + resultItems.getAll().size());
+
+
     }
 }

@@ -19,4 +19,8 @@ public class HsdConstant {
     /**store the data use model rather than field*/
     public static final String MODEL = "result.parsed.from.page";
 
+    public static final String DEFAULT_CHARSET = "UTF-8";
+
+    public static final String SINA_STOCK_TAGS_CHARSET = "GB2312";
+
 }
