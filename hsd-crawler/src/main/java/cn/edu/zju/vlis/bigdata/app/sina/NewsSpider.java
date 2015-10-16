@@ -1,10 +1,15 @@
 package cn.edu.zju.vlis.bigdata.app.sina;
 
+import cn.edu.zju.vlis.bigdata.SpiderContaniner;
 import cn.edu.zju.vlis.bigdata.filter.Filter;
 import cn.edu.zju.vlis.bigdata.filter.TimeRangeFilter;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.Pipeline;
+import us.codecraft.webmagic.processor.PageProcessor;
+
+import java.util.concurrent.ExecutorService;
 
 /**
  * Created by wangxiaoyi on 15/9/24.
@@ -13,11 +18,19 @@ import us.codecraft.webmagic.Spider;
  */
 
 
-public class NewsSpider {
-
-    private static Config conf = null;
+public class NewsSpider implements SpiderContaniner{
 
     private Filter filter = null;
+
+
+    private Config conf = null;
+
+    private Spider spider = null;
+    private ExecutorService service = null;
+    private Pipeline pipeline = null;
+    private PageProcessor processor = null;
+    private String spiderName = null;
+
 
     public void setConfig(Config conf){
         this.conf = conf;
@@ -28,18 +41,63 @@ public class NewsSpider {
     }
 
 
+    /**
+     * get the spider
+     *
+     * @return
+     */
+    @Override
+    public Spider getSpider() {
+        return spider;
+    }
+
+    /**
+     * start the spider
+     */
+    @Override
+    public void startSpider() {
+        spider.run();
+    }
+
+    /**
+     * init the spider
+     */
+    @Override
+    public void initSpider() {
+        spiderName = "NewsSpider";
+        conf = ConfigFactory.load();
+
+        Filter filter = new TimeRangeFilter(20151015, 20151015);
+        processor = new NewsPageProcessor(conf).setFilter(filter);
+        spider = Spider.create(processor)
+                        .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")
+                        .addPipeline(new NewsPipeline())
+                        .thread(1);
+    }
+
+    /**
+     * stop the spider
+     */
+    @Override
+    public void stopSipder() {
+        spider.close();
+    }
+
+    /**
+     * get the spider name
+     *
+     * @return
+     */
+    @Override
+    public String getSpiderName() {
+        return spiderName;
+    }
+
 
     public static void main(String []args){
-        conf = ConfigFactory.load();
-        Filter filter = new TimeRangeFilter(20151009, 20151012);
-
-        NewsPageProcessor npp = new NewsPageProcessor(conf);
-        npp.setFilter(filter);
-
-        Spider.create(npp)
-                .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")
-                .addPipeline(new NewsPipeline())
-                .thread(1)
-                .run();
+        SpiderContaniner spiderContaniner = new NewsSpider();
+        spiderContaniner.initSpider();
+        spiderContaniner.startSpider();
     }
+
 }

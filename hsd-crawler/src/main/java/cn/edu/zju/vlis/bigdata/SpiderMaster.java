@@ -19,9 +19,12 @@ public class SpiderMaster {
 
     public void init(){
         LOG.info("Spider Master init ... ");
+        spiderContaniners.forEach(spider -> spider.initSpider());
+    }
 
-
-
+    public void startAll(){
+        LOG.info("Starting all spiders");
+        spiderContaniners.forEach(spiderContaniner -> spiderContaniner.startSpider());
     }
 
     public void addSpider(SpiderContaniner contaniner){
@@ -33,14 +36,15 @@ public class SpiderMaster {
         contaniner.startSpider();
     }
 
-    public void start(){
-        spiderContaniners.forEach(spiderContaniner -> spiderContaniner.startSpider());
-    }
 
     public void shutdown(){
         spiderContaniners.forEach(spiderContaniner -> spiderContaniner.stopSipder());
     }
 
+
+    public void startSpiderByClassName(String className){
+
+    }
 
     public static void main(String []args){
 
@@ -48,7 +52,7 @@ public class SpiderMaster {
         spiderMaster.init();
 
         LOG.info("Starting all spiders");
-        spiderMaster.start();
+        spiderMaster.startAll();
 
         System.out.println("hello world!");
     }

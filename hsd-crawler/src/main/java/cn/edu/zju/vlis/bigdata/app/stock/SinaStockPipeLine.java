@@ -59,7 +59,6 @@ public class SinaStockPipeLine implements Pipeline{
                     stocksToTags.put(code, cl);
                 }
             });
-            //System.err.println(stocksToTags.size());
         }
     }
 

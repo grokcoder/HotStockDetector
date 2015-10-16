@@ -187,8 +187,9 @@ public class NewsPageProcessor implements PageProcessor{
         return urls;
     }
 
-    public void setFilter(Filter filter) {
+    public PageProcessor setFilter(Filter filter) {
         this.filter = filter;
+        return this;
     }
 
     @Override

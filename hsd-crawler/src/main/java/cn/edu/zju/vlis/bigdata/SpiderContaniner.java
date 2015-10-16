@@ -10,13 +10,30 @@ import us.codecraft.webmagic.Spider;
 
 public interface SpiderContaniner {
 
+    /**
+     * get the spider
+     * @return
+     */
     Spider getSpider();
 
+    /**
+     * start the spider
+     */
     void startSpider();
 
+    /**
+     * init the spider
+     */
     void initSpider();
 
+    /**
+     * stop the spider
+     */
     void stopSipder();
 
+    /**
+     * get the spider name
+     * @return
+     */
     String getSpiderName();
 }

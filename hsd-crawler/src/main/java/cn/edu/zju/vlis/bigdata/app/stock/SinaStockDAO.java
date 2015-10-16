@@ -35,7 +35,6 @@ public class SinaStockDAO extends SpringDAOImpl{
             //LOG.error(stockCode);
         }
 
-
         StringBuilder sb = new StringBuilder();
         if(tag == null || tag.equals("")){
             tags.forEach(t -> sb.append(t).append(','));
@@ -48,17 +47,6 @@ public class SinaStockDAO extends SpringDAOImpl{
             tags.forEach(t -> ts.add(t));
             ts.forEach(t -> sb.append(t).append(','));
         }
-        //TODO: find a batch solution
         jdbcTemplate.update(sql, sb.toString(), stockCode);
     }
-
-
-    public static void main(String []args){
-        List<String> tags = new LinkedList<>();
-        tags.add("t1");
-        tags.add("t2");
-        new SinaStockDAO().updateStockTagsByStockCode("000001212", tags);
-    }
-
-
 }
