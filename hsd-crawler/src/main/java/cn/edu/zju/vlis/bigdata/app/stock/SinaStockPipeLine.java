@@ -22,22 +22,16 @@ public class SinaStockPipeLine implements Pipeline{
 
 
     private volatile Map<String, List<String>> stocksToTags = null;
-    public static final int NO_RECEIVE_RECORD_TIME = 30 * 1000;
-
-    private long lastReceiveResultTime = 0;
 
     public SinaStockPipeLine(ExecutorService service){
-        lastReceiveResultTime = System.currentTimeMillis();
         stocksToTags = new HashMap<>();
         dao = new SinaStockDAO();
-       // service.submit(new DBA());
     }
 
 
     public Map<String, List<String>> getStocksToTags() {
         return stocksToTags;
     }
-
 
 
 
@@ -65,34 +59,17 @@ public class SinaStockPipeLine implements Pipeline{
                     stocksToTags.put(code, cl);
                 }
             });
-            lastReceiveResultTime = System.currentTimeMillis();
-            stocksToTags.forEach((stockCode, tags) -> dao.updateStockTagsByStockCode(stockCode, tags));
+            //System.err.println(stocksToTags.size());
         }
     }
 
 
-    class DBA implements Runnable{
-
-        /**
-         * When an object implementing interface <code>Runnable</code> is used
-         * to create a thread, starting the thread causes the object's
-         * <code>run</code> method to be called in that separately executing
-         * thread.
-         * <p>
-         * The general contract of the method <code>run</code> is that it may
-         * take any action whatsoever.
-         *
-         * @see Thread#run()
-         */
-        @Override
-        public void run() {
-            while (true){
-                if(System.currentTimeMillis() - lastReceiveResultTime > NO_RECEIVE_RECORD_TIME){
-                    Map<String, List<String>> stocks = stocksToTags;
-                    stocksToTags = new HashMap<>(); // for new received record
-                    stocks.forEach((stockCode, tags) -> dao.updateStockTagsByStockCode(stockCode, tags));
-                }
-            }
-        }
+    public void saveToDbAfterClose(){
+        Map<String, List<String>> stocks = stocksToTags;
+        stocksToTags = new HashMap<>(); // for new received record
+        stocks.forEach((stockCode, tags) -> dao.updateStockTagsByStockCode(stockCode, tags));
     }
+
+
+
 }

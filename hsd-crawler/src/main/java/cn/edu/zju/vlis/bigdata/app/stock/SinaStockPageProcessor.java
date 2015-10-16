@@ -89,8 +89,6 @@ public class SinaStockPageProcessor  implements PageProcessor{
             String className = fields[0];
             String classChineseName =  fields[1];
             int numOfStocks = 10000;
-                    //Integer.valueOf(fields[3]);
-            System.out.println(className + "\t" + classChineseName + "\t" + numOfStocks);
 
             Request request = new Request(UrlFactory.getClassToStocksUrl(className, numOfStocks));
             request.putExtra("TAG_NAME", classChineseName);

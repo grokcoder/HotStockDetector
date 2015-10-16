@@ -26,16 +26,27 @@ public class StockTagsSpider {
         conf = ConfigFactory.load();
         SinaStockPageProcessor processor = new SinaStockPageProcessor(conf);
 
+
         ExecutorService service = Executors.newCachedThreadPool();
+
+        SinaStockPipeLine pipeLine = new SinaStockPipeLine(service);
 
 
         Spider spider = Spider.create(processor)
-                .addUrl(new String[]{UrlFactory.getSinaStockClassUrl("class"), UrlFactory.getSinaStockClassUrl("factory")})
+                .addUrl(new String[]{UrlFactory.getSinaStockClassUrl("class"),
+                        UrlFactory.getSinaStockClassUrl("industry"),
+                        UrlFactory.getSinaStockClassUrl("area")})
                 .thread(1)
-                .addPipeline(new SinaStockPipeLine(service));
+                .addPipeline(pipeLine);
 
         spider.setExecutorService(service);
         spider.run();
+
+        pipeLine.saveToDbAfterClose();
+        service.shutdown();
+
+
+
 
 
     }

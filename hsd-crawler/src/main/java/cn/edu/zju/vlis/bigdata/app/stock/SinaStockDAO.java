@@ -1,6 +1,10 @@
 package cn.edu.zju.vlis.bigdata.app.stock;
 
 import cn.edu.zju.vlis.bigdata.dao.SpringDAOImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
+
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,6 +15,7 @@ import java.util.Set;
  */
 public class SinaStockDAO extends SpringDAOImpl{
 
+    private static final Logger LOG = LoggerFactory.getLogger(SinaStockDAO.class);
 
     /**
      *
@@ -21,13 +26,14 @@ public class SinaStockDAO extends SpringDAOImpl{
 
         String queryStockTags = "select tags from stock where code = ?";
         String sql = "update stock set tags = ? where code = ?";
-
-        System.err.println("query " + stockCode);
-        String tag = jdbcTemplate.queryForObject(queryStockTags,
-                new Object[]{stockCode},
-                (rs, rowNum) -> {
-                    return rs.getString(1);
-                });
+        String tag = null;
+        try {
+            tag = jdbcTemplate.queryForObject(queryStockTags,
+                    new Object[]{stockCode}, String.class);
+        }catch (EmptyResultDataAccessException ee){
+            LOG.error("no stock with code " + stockCode + " found in database!");
+            //LOG.error(stockCode);
+        }
 
 
         StringBuilder sb = new StringBuilder();
@@ -51,7 +57,7 @@ public class SinaStockDAO extends SpringDAOImpl{
         List<String> tags = new LinkedList<>();
         tags.add("t1");
         tags.add("t2");
-        new SinaStockDAO().updateStockTagsByStockCode("000001", tags);
+        new SinaStockDAO().updateStockTagsByStockCode("000001212", tags);
     }
 
 
