@@ -63,7 +63,7 @@ public class StockTagsSpider implements SpiderContaniner{
     }
 
     @Override
-    public void stopSipder() {
+    public void stopSpider() {
        spider.close();
         //service.shutdown();
     }

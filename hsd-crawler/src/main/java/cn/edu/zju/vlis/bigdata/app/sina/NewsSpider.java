@@ -57,6 +57,7 @@ public class NewsSpider implements SpiderContaniner{
     @Override
     public void startSpider() {
         spider.run();
+        ((NewsPipeline)pipeline).saveToDbAfterClose();
     }
 
     /**
@@ -69,17 +70,19 @@ public class NewsSpider implements SpiderContaniner{
 
         Filter filter = new TimeRangeFilter(20151015, 20151015);
         processor = new NewsPageProcessor(conf).setFilter(filter);
+        pipeline = new NewsPipeline();
+
         spider = Spider.create(processor)
                         .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")
-                        .addPipeline(new NewsPipeline())
-                        .thread(1);
+                        .addPipeline(pipeline)
+                        .thread(4);
     }
 
     /**
      * stop the spider
      */
     @Override
-    public void stopSipder() {
+    public void stopSpider() {
         spider.close();
     }
 

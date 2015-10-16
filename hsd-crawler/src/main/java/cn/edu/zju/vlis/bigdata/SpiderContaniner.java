@@ -29,7 +29,7 @@ public interface SpiderContaniner {
     /**
      * stop the spider
      */
-    void stopSipder();
+    void stopSpider();
 
     /**
      * get the spider name
