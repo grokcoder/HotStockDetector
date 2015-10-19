@@ -8,7 +8,7 @@ import us.codecraft.webmagic.Spider;
  */
 
 
-public interface SpiderContaniner {
+public interface SpiderContainer {
 
     /**
      * get the spider

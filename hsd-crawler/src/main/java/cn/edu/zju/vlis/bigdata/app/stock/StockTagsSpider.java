@@ -1,6 +1,6 @@
 package cn.edu.zju.vlis.bigdata.app.stock;
 
-import cn.edu.zju.vlis.bigdata.SpiderContaniner;
+import cn.edu.zju.vlis.bigdata.SpiderContainer;
 import cn.edu.zju.vlis.bigdata.common.UrlFactory;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
@@ -20,8 +20,7 @@ import java.util.concurrent.Executors;
  *
  */
 
-
-public class StockTagsSpider implements SpiderContaniner{
+public class StockTagsSpider implements SpiderContainer {
 
     private Config conf = null;
 
@@ -79,7 +78,6 @@ public class StockTagsSpider implements SpiderContaniner{
         StockTagsSpider stockTagsSpider = new StockTagsSpider();
         stockTagsSpider.initSpider();
         stockTagsSpider.startSpider();
-
     }
 
 

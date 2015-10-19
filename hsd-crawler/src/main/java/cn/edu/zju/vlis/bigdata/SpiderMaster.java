@@ -15,30 +15,30 @@ public class SpiderMaster {
 
     private static final Logger LOG = LoggerFactory.getLogger(SpiderMaster.class.getName());
 
-    private List<SpiderContaniner> spiderContaniners = null;
+    private List<SpiderContainer> spiderContainers = null;
 
     public void init(){
         LOG.info("Spider Master init ... ");
-        spiderContaniners.forEach(spider -> spider.initSpider());
+        spiderContainers.forEach(spider -> spider.initSpider());
     }
 
     public void startAll(){
         LOG.info("Starting all spiders");
-        spiderContaniners.forEach(spiderContaniner -> spiderContaniner.startSpider());
+        spiderContainers.forEach(spiderContainer -> spiderContainer.startSpider());
     }
 
-    public void addSpider(SpiderContaniner contaniner){
-        spiderContaniners.add(contaniner);
+    public void addSpider(SpiderContainer container){
+        spiderContainers.add(container);
     }
 
-    public void addAndStartSpider(SpiderContaniner contaniner){
-        spiderContaniners.add(contaniner);
-        contaniner.startSpider();
+    public void addAndStartSpider(SpiderContainer container){
+        spiderContainers.add(container);
+        container.startSpider();
     }
 
 
     public void shutdown(){
-        spiderContaniners.forEach(spiderContaniner -> spiderContaniner.stopSipder());
+        spiderContainers.forEach(spiderContainer -> spiderContainer.stopSpider());
     }
 
 

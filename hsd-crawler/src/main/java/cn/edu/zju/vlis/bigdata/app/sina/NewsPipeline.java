@@ -45,6 +45,7 @@ public class NewsPipeline implements Pipeline {
     @Override
     public void process(ResultItems resultItems, Task task) {
         News news = resultItems.get(HsdConstant.MODEL);
+        //System.err.println(news.getTitle() + news.getPublishDate());
         if(batchInsert) {
             synchronized (this) {
                 if (news != null) {

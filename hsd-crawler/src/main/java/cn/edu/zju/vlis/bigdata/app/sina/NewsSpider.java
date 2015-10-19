@@ -1,6 +1,6 @@
 package cn.edu.zju.vlis.bigdata.app.sina;
 
-import cn.edu.zju.vlis.bigdata.SpiderContaniner;
+import cn.edu.zju.vlis.bigdata.SpiderContainer;
 import cn.edu.zju.vlis.bigdata.filter.Filter;
 import cn.edu.zju.vlis.bigdata.filter.TimeRangeFilter;
 import com.typesafe.config.Config;
@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutorService;
  */
 
 
-public class NewsSpider implements SpiderContaniner{
+public class NewsSpider implements SpiderContainer {
 
     private Filter filter = null;
 
@@ -68,14 +68,18 @@ public class NewsSpider implements SpiderContaniner{
         spiderName = "NewsSpider";
         conf = ConfigFactory.load();
 
-        Filter filter = new TimeRangeFilter(20151015, 20151015);
+        Filter filter = new TimeRangeFilter(20151001, 20151018);
         processor = new NewsPageProcessor(conf).setFilter(filter);
         pipeline = new NewsPipeline();
 
         spider = Spider.create(processor)
-                        .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")
+                        .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")//国内财经
+                        //.addUrl("http://roll.finance.sina.com.cn/finance/gncj/jrxw/index_1.shtml")//金融新闻
+                        //.addUrl("http://roll.finance.sina.com.cn/finance/gncj/dfjj/index_1.shtml")//地方经济
+                        //.addUrl("http://roll.finance.sina.com.cn/finance/gncj/hgjj/index_1.shtml")//行业经济
+                        //.addUrl("http://roll.finance.sina.com.cn/finance/gncj/bwdt/index_1.shtml")//部委动态
                         .addPipeline(pipeline)
-                        .thread(4);
+                        .thread(1);
     }
 
     /**
@@ -98,9 +102,9 @@ public class NewsSpider implements SpiderContaniner{
 
 
     public static void main(String []args){
-        SpiderContaniner spiderContaniner = new NewsSpider();
-        spiderContaniner.initSpider();
-        spiderContaniner.startSpider();
+        SpiderContainer spiderContainer = new NewsSpider();
+        spiderContainer.initSpider();
+        spiderContainer.startSpider();
     }
 
 }
