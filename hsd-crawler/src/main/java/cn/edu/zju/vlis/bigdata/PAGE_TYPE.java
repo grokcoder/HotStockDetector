@@ -21,5 +21,14 @@ public enum PAGE_TYPE {
     SINA_STOCKS_WITH_SPECIFIC_CLASSIFICATION,
 
 
-    NOT_DEFINE
+    /**
+     * we just need three page type as follows
+     */
+
+    NOT_DEFINE,
+
+    INDEX_PAGE,
+
+    DETAIL_PAGE
+
 }

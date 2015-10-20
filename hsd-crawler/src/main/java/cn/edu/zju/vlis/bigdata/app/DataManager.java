@@ -43,7 +43,7 @@ public class DataManager extends SpringDAOImpl{
      */
     public void addPubDateForNewsWithoutDateFromUrl(){
 
-        List<Map<String, Object>> rs = jdbcTemplate.queryForList("select nid, url from news where pub_date like \"%/\" ");
+        List<Map<String, Object>> rs = jdbcTemplate.queryForList("select nid, url from news where pub_date is NULL ");
 
         List<Object[]> args = new LinkedList<>();
 
@@ -61,7 +61,7 @@ public class DataManager extends SpringDAOImpl{
 
 
     public static void main(String []args){
-       // new DataManager().removeDuplicateRecordsForNewsByUrl();
+        new DataManager().removeDuplicateRecordsForNewsByUrl();
         new DataManager().addPubDateForNewsWithoutDateFromUrl();
     }
 

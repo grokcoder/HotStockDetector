@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by wangxiaoyi on 15/10/14.
  *
- * crawl data for stock tags
+ * crawl data for labeling the stock with related tags
  *
  */
 
@@ -73,13 +73,11 @@ public class StockTagsSpider implements SpiderContainer {
     }
 
 
-
     public static void main(String []args){
         StockTagsSpider stockTagsSpider = new StockTagsSpider();
         stockTagsSpider.initSpider();
         stockTagsSpider.startSpider();
     }
-
 
 
 }
