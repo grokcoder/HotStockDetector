@@ -67,7 +67,7 @@ public class NewsSpider implements SpiderContainer {
         spiderName = "NewsSpider";
         conf = ConfigFactory.load();
 
-        Filter filter = new TimeRangeFilter(20151019, 20151019);
+        Filter filter = new TimeRangeFilter(20151020, 20151020);
         processor = new NewsPageProcessor(conf).setFilter(filter);
         pipeline = new NewsPipeline();
 

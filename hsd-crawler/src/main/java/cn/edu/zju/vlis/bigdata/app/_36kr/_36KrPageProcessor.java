@@ -1,7 +1,12 @@
 package cn.edu.zju.vlis.bigdata.app._36kr;
 
 import cn.edu.zju.vlis.bigdata.AbstractPageProcessor;
+import cn.edu.zju.vlis.bigdata.DateParser;
 import cn.edu.zju.vlis.bigdata.PAGE_TYPE;
+import cn.edu.zju.vlis.bigdata.app._36kr.model.Article;
+import cn.edu.zju.vlis.bigdata.common.HsdConstant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
@@ -15,6 +20,8 @@ import java.util.List;
  */
 public class _36KrPageProcessor extends AbstractPageProcessor{
 
+    private static final Logger LOG = LoggerFactory.getLogger(_36KrPageProcessor.class);
+
     /**
      * process the index page to fetch the url for crawling
      *
@@ -23,15 +30,32 @@ public class _36KrPageProcessor extends AbstractPageProcessor{
     @Override
     public void processIndexPage(Page page) {
         Html html = page.getHtml();
-
         List<Selectable> articles = html.xpath("article").nodes();
+        String nextIndexUrl = html.xpath("a[@class=\'load-more J_listLoadMore\']/@href").get();
 
         articles.forEach(article -> {
-            String time = article.xpath("time/@datetime").get();
-            String aurl = article.xpath("a[@class='title info_flow_news_title']/@href").get();
+            //two types of time tags
+            String time = article.xpath("time/@title").get();
+            if(time == null) time = article.xpath("abbr/@title").get();
+            if(filter == null) {
+                String aurl = article.xpath("a[@class='title info_flow_news_title']/@href").get();
+                page.addTargetRequest(aurl);
+            }else {
+                long t = DateParser.parseDateBySchema(time, "yyyy-MM-dd HH:mm:ss Z");
+                switch (filter.filtrateURLByTime(t)){
+                    case EXCLUED_GO_TO_NEXT:
+                        page.addTargetRequest(nextIndexUrl);
+                        break;
+                    case INCLUDE:
+                        String aurl = article.xpath("a[@class='title info_flow_news_title']/@href").get();
+                        page.addTargetRequest(aurl);
+                        page.addTargetRequest(nextIndexUrl);
+                        break;
+                    case EXCLUDE_NOT_GO_TO_NEXT:
+                        break;
+                }
+            }
         });
-
-        String nextIndexUrl = html.xpath("a[@class=\'load-more J_listLoadMore\']/@href").get();
 
     }
 
@@ -43,6 +67,14 @@ public class _36KrPageProcessor extends AbstractPageProcessor{
     @Override
     public void processDetailPage(Page page) {
 
+        Html html = page.getHtml();
+        Article article = new Article();
+        article.setTitle(html.xpath("title/text()").get());
+        article.setUrl(page.getUrl().get());
+        article.setPubDate(html.xpath("meta[@name=\'weibo: article:create_at\']/@content").get());
+        article.setPubMedia(html.xpath("meta[@name=author]/@content").get());
+        article.setContent(html.xpath("section[@class=article]/tidyText()").get());
+        page.putField(HsdConstant.MODEL, article);
     }
 
     /**
@@ -53,7 +85,7 @@ public class _36KrPageProcessor extends AbstractPageProcessor{
      */
     @Override
     public PAGE_TYPE getPageTypeByUrl(String url) {
-        if(url.contains("&d=next") || url.equals("http://36kr.com/")){
+        if(url.endsWith("&d=next") || url.equals("http://36kr.com/")){
             return PAGE_TYPE.INDEX_PAGE;
         }else if(url.contains("http://36kr.com/p/")){
             return PAGE_TYPE.DETAIL_PAGE;

@@ -1,6 +1,7 @@
 package cn.edu.zju.vlis.bigdata.app._36kr;
 
 import cn.edu.zju.vlis.bigdata.AbstractSpider;
+import cn.edu.zju.vlis.bigdata.DateParser;
 import cn.edu.zju.vlis.bigdata.SpiderContainer;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.filter.TimeRangeFilter;
@@ -31,16 +32,19 @@ public class _36KrSpider  extends AbstractSpider{
                 .setTimeOut(conf.getInt(HsdConstant.CRAWLER_TIME_OUT))
                 .setUserAgent(conf.getString(HsdConstant.CRAWLER_USER_AGENT));
 
+        long start = DateParser.parseDateBySchema("2015-10-20 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        long end = DateParser.parseDateBySchema("2015-10-20 23:59:59", "yyyy-MM-dd HH:mm:ss");
         this.processor = new _36KrPageProcessor()
-                        .setFilter(new TimeRangeFilter(1, 2))
+                        .setFilter(new TimeRangeFilter(start, end))
                         .setSite(site);
 
-       // this.pipeline = new ConsolePipeline();
+        this.pipeline = new _36KrPipeline();
         this.spider = Spider.create(processor)
                         .addPipeline(pipeline)
                         .addUrl("http://36kr.com/")
+                        //.addUrl("http://36kr.com/?b_url_code=5038684&d=next")
                         .thread(1)
-                        .setExitWhenComplete(false);
+                        .setExitWhenComplete(true);
 
     }
 

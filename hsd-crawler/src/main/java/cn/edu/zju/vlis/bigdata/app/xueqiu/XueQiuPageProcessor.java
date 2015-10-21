@@ -13,8 +13,6 @@ import org.slf4j.LoggerFactory;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
-import us.codecraft.webmagic.selector.Html;
-
 import java.util.*;
 
 
@@ -36,10 +34,6 @@ public class XueQiuPageProcessor implements PageProcessor {
                 .setTimeOut(conf.getInt(HsdConstant.CRAWLER_TIME_OUT))
                 .setUserAgent(conf.getString(HsdConstant.CRAWLER_USER_AGENT));
     }
-
-    //just for tests
-    public XueQiuPageProcessor() {
-    };
 
 
     @Override
@@ -68,7 +62,6 @@ public class XueQiuPageProcessor implements PageProcessor {
 
     public void processDetailsPage(Page page) {
         Stock stock = new Stock();
-        Html html = page.getHtml();
         StockDAO stockDAO = new StockDAO();
         String regex_url = "http://xueqiu.com/S/";
         String sb;
@@ -96,9 +89,7 @@ public class XueQiuPageProcessor implements PageProcessor {
     }
 
     public void processContentPage(Page page) {
-        //todo: fetch info form page
         Stock stock = new Stock();
-        Html html = page.getHtml();
         String regex_url = "http://xueqiu\\.com/stock/cata/stocklist.json";
 
         if (null == page.getUrl().regex(regex_url).toString()) {
@@ -120,7 +111,6 @@ public class XueQiuPageProcessor implements PageProcessor {
                 return;
             }
 
-
             for (int i = 0; i < jsonArray_stocks.size(); i++) {
                 jsonTemp = JSON.parseObject(jsonArray_stocks.getString(i));
                 System.err.println(jsonTemp.getString("name"));
@@ -133,21 +123,6 @@ public class XueQiuPageProcessor implements PageProcessor {
         }
 
 
-    }
-
-
-    /**
-     * fetch URL form page
-     *
-     * @param page
-     * @param cssQuery css query expressions
-     * @return list of URLs
-     */
-    public List<String> fetchUrls(Page page, String cssQuery) {
-        List<String> urls = new LinkedList<>();
-        Html html = page.getHtml();
-        urls.addAll(html.css(cssQuery).links().all());
-        return urls;
     }
 
     @Override

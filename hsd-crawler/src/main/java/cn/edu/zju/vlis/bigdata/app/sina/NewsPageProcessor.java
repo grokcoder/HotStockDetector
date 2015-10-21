@@ -1,5 +1,6 @@
 package cn.edu.zju.vlis.bigdata.app.sina;
 
+import cn.edu.zju.vlis.bigdata.DateParser;
 import cn.edu.zju.vlis.bigdata.NAV_BAR;
 import cn.edu.zju.vlis.bigdata.PAGE_TYPE;
 import cn.edu.zju.vlis.bigdata.PageClassifier;
@@ -7,11 +8,13 @@ import cn.edu.zju.vlis.bigdata.app.sina.model.News;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.common.UrlFactory;
 
+import cn.edu.zju.vlis.bigdata.common.UrlParser;
 import cn.edu.zju.vlis.bigdata.filter.FILTER_CODE;
 import cn.edu.zju.vlis.bigdata.filter.Filter;
 import com.typesafe.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
@@ -92,7 +95,12 @@ public class NewsPageProcessor implements PageProcessor{
 
         for(String url : urls){
             if(filter != null) {
-                FILTER_CODE code = filter.filtrateURL(url, regex);
+                String time = UrlParser.fetchTimeInfo(url, regex).get();
+                time = time.substring(1, time.length() - 1);
+                Long t = DateParser.parseDateBySchema(time, "yyMMdd");
+                if(t == -1) com.sun.tools.javac.util.Assert.error("time paese error " + time);
+
+                FILTER_CODE code = filter.filtrateURLByTime(t);
                 switch (code){
                     case INCLUDE: requests.add(new Request(url));break;
                     case EXCLUDE_NOT_GO_TO_NEXT:gotoNextPage = false; break;

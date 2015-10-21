@@ -21,12 +21,12 @@ public abstract class AbstractPageProcessor implements PageProcessor, UrlClassif
     /**
      * for specify the crawl policies of this spider
      */
-    private Site site = null;
+    protected Site site = null;
 
     /**
      * for decide whether the url should be crawled
      */
-    private Filter filter = null;
+    protected Filter filter = null;
 
 
     public AbstractPageProcessor(Site site, Filter filter){

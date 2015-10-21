@@ -7,9 +7,12 @@ public interface Filter {
 
     /**
      * filter the url
-     * @param url url to fetch
-     * @param regex expression to extract info we need
+     * @param time time of the url
      * @return
      */
-    FILTER_CODE filtrateURL(String url, String regex);
+    FILTER_CODE filtrateURLByTime(long time);
+
+
+
+
 }
