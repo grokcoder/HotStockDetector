@@ -1,4 +1,4 @@
-package cn.edu.zju.vlis.bigdata.app._36kr;
+package cn.edu.zju.vlis.bigdata.app.huxiu;
 
 import cn.edu.zju.vlis.bigdata.app.model.Article;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
@@ -7,16 +7,15 @@ import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
 /**
- * Created by wangxiaoyi on 15/10/20.
+ * Created by wangxiaoyi on 15/10/22.
  */
-public class _36KrPipeline implements Pipeline{
+public class HuXiuPipeLine implements Pipeline{
 
-    private _36DAO dao = null;
+    HuXiuDAO dao = null;
 
-    public _36KrPipeline(){
-        dao = new _36DAO();
+    public HuXiuPipeLine(){
+        dao = new HuXiuDAO();
     }
-
 
     /**
      * Process extracted results.

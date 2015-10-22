@@ -9,7 +9,7 @@ public interface UrlClassifier {
     /**
      * return the page type of the url
      * @param url
-     * @return
+     * @return INDEX_PAGE, DETAIL_PAGE or NOT_DEFINE
      */
     PAGE_TYPE getPageTypeByUrl(String url);
 

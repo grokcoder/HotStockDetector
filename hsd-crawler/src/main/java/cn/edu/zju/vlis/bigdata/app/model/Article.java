@@ -1,4 +1,4 @@
-package cn.edu.zju.vlis.bigdata.app._36kr.model;
+package cn.edu.zju.vlis.bigdata.app.model;
 
 /**
  * Created by wangxiaoyi on 15/10/21.

@@ -72,11 +72,7 @@ public class NewsSpider implements SpiderContainer {
         pipeline = new NewsPipeline();
 
         spider = Spider.create(processor)
-                        .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")//国内财经
-                        //.addUrl("http://roll.finance.sina.com.cn/finance/gncj/jrxw/index_1.shtml")//金融新闻
-                        //.addUrl("http://roll.finance.sina.com.cn/finance/gncj/dfjj/index_1.shtml")//地方经济
-                        //.addUrl("http://roll.finance.sina.com.cn/finance/gncj/hgjj/index_1.shtml")//行业经济
-                        //.addUrl("http://roll.finance.sina.com.cn/finance/gncj/bwdt/index_1.shtml")//部委动态
+                        .addUrl("http://roll.finance.sina.com.cn/finance/gncj/gncj/index_1.shtml")
                         .addPipeline(pipeline)
                         .thread(1);
     }

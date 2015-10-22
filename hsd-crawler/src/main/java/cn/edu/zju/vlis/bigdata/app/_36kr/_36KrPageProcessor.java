@@ -3,7 +3,7 @@ package cn.edu.zju.vlis.bigdata.app._36kr;
 import cn.edu.zju.vlis.bigdata.AbstractPageProcessor;
 import cn.edu.zju.vlis.bigdata.DateParser;
 import cn.edu.zju.vlis.bigdata.PAGE_TYPE;
-import cn.edu.zju.vlis.bigdata.app._36kr.model.Article;
+import cn.edu.zju.vlis.bigdata.app.model.Article;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +40,7 @@ public class _36KrPageProcessor extends AbstractPageProcessor{
             if(filter == null) {
                 String aurl = article.xpath("a[@class='title info_flow_news_title']/@href").get();
                 page.addTargetRequest(aurl);
+                page.addTargetRequest(nextIndexUrl);
             }else {
                 long t = DateParser.parseDateBySchema(time, "yyyy-MM-dd HH:mm:ss Z");
                 switch (filter.filtrateURLByTime(t)){
@@ -71,7 +72,12 @@ public class _36KrPageProcessor extends AbstractPageProcessor{
         Article article = new Article();
         article.setTitle(html.xpath("title/text()").get());
         article.setUrl(page.getUrl().get());
-        article.setPubDate(html.xpath("meta[@name=\'weibo: article:create_at\']/@content").get());
+        String date = DateParser.transformBySchema(
+                html.xpath("meta[@name=\'weibo: article:create_at\']/@content").get(),
+                "yyyy-MM-dd HH:mm:ss Z",
+                "yyyy-MM-dd");
+        article.setPubDate(date);
+
         article.setPubMedia(html.xpath("meta[@name=author]/@content").get());
         article.setContent(html.xpath("section[@class=article]/tidyText()").get());
         page.putField(HsdConstant.MODEL, article);

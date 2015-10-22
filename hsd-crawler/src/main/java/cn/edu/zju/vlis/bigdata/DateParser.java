@@ -31,5 +31,30 @@ public class DateParser {
         }
     }
 
+    /**
+     * format the date with schema "format"
+     * @param time
+     * @param format
+     * @return
+     */
+    public static String parseDateBySchema(Long time, String format){
+
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        Date d = new Date(time);
+        String stringDate  = sdf.format(d);
+        return stringDate;
+    }
+
+    /**
+     * transform the time's format from originalFormat to format
+     * @param time
+     * @param orignalFormat
+     * @param format
+     * @return
+     */
+    public static String transformBySchema(String time,String orignalFormat, String format){
+        long t = parseDateBySchema(time, orignalFormat);
+        return parseDateBySchema(t, format);
+    }
 
 }

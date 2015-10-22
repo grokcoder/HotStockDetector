@@ -1,6 +1,6 @@
 package cn.edu.zju.vlis.bigdata.app._36kr;
 
-import cn.edu.zju.vlis.bigdata.app._36kr.model.Article;
+import cn.edu.zju.vlis.bigdata.app.model.Article;
 import cn.edu.zju.vlis.bigdata.dao.SpringDAOImpl;
 
 /**

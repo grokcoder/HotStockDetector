@@ -42,5 +42,26 @@ public class UrlFactory {
 
     }
 
+    /**
+     * construct the index page of huxiu, for example:http://www.huxiu.com/v2_action/article_list?page=14&catid=2
+     * @param pageNum for which page
+     * @param catid for which category
+     * @return the index page at "pageNum" and with category id "catid"
+     */
+    public static String getHuXiuIndexPage(int pageNum, int catid){
+        String root = "http://www.huxiu.com/v2_action/article_list?page=";
+        return root + pageNum + "&catid=" + catid;
+    }
+
+
+    /**
+     * construct the detailed page fo huxiu, for example: http://www.huxiu.com/
+     * @param pageInfo indicate the specified page
+     * @return
+     */
+    public static String getHuXiuDetailPage(String pageInfo){
+        String root = "http://www.huxiu.com";
+        return root + pageInfo;
+    }
 
 }
