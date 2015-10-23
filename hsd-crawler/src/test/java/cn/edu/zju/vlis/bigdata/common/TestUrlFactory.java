@@ -32,6 +32,24 @@ public class TestUrlFactory {
         Assert.assertEquals(expUrl, curl);
     }
 
+    @Test
+    public void testGetTech2ipoNextIndexPage(){
+
+        String curr1 = "http://tech2ipo.com/news/";
+
+        Assert.assertEquals(curr1 + "2", UrlFactory.getTech2ipoNextIndexPage(curr1 + "1"));
+
+        String curr2 = "http://tech2ipo.com/startup/";
+
+        Assert.assertEquals(curr2 + "21", UrlFactory.getTech2ipoNextIndexPage(curr2 + "20"));
+
+        String curr3 = "http://tech2ipo.com/apps/";
+
+        Assert.assertEquals(curr3 + "123", UrlFactory.getTech2ipoNextIndexPage(curr3 + "122"));
+
+
+    }
+
 
 
 

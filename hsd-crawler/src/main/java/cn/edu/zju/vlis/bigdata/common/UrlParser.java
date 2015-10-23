@@ -32,4 +32,25 @@ public class UrlParser {
         }
     }
 
+    /**
+     * fetch the page num form a index page
+     * example : http://tech2ipo.com/news/1
+     * output : 1
+     * @param url
+     * @param regex
+     * @return
+     */
+    public static int fetchPageNum(String url, String regex){
+
+        Pattern r = Pattern.compile(regex);
+        Matcher m = r.matcher(url);
+        if (m.find( )) {
+            Optional<String> time = Optional.of(m.group(0));
+
+            return Integer.valueOf(time.get().substring(1));
+        } else {
+            return -1;
+        }
+    }
+
 }

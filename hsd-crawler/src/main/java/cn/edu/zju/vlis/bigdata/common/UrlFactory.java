@@ -64,4 +64,16 @@ public class UrlFactory {
         return root + pageInfo;
     }
 
+    /**
+     * construct the index page for tech2ipo index page
+     * for example: originalUrl = http://tech2ipo.com/news/1, next url should be : http://tech2ipo.com/news/2
+     * @param originalUrl
+     * @return
+     */
+    public static String getTech2ipoNextIndexPage(String originalUrl){
+        int nextPageNum = 1 + UrlParser.fetchPageNum(originalUrl, "/[\\d]+");
+        String nextUrl = originalUrl.replaceAll("/[\\d]+", "/" + nextPageNum);
+        return nextUrl;
+    }
+
 }

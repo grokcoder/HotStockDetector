@@ -76,7 +76,7 @@ public class HuXiuPageProcessor extends AbstractPageProcessor{
         article.setPubMedia("虎嗅网");
         article.setUrl(page.getUrl().get());
         article.setKeywords(html.xpath("meta[@name=keywords]/@content").get());
-        article.setTitle(html.xpath("title/text()").get());
+        article.setTitle(html.xpath("h1[@class=t-h1]/text()").get());
 
         String stringDate = html.xpath("span[@class=article-time]/text()").get();
         stringDate = DateParser.parseDateBySchema(
