@@ -70,7 +70,7 @@ public class _36KrPageProcessor extends AbstractPageProcessor{
 
         Html html = page.getHtml();
         Article article = new Article();
-        article.setTitle(html.xpath("title/text()").get());
+        article.setTitle(html.xpath("h1/text()").get());
         article.setUrl(page.getUrl().get());
         String date = DateParser.transformBySchema(
                 html.xpath("meta[@name=\'weibo: article:create_at\']/@content").get(),

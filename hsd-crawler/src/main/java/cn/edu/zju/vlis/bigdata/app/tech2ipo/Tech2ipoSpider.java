@@ -44,7 +44,7 @@ public class Tech2ipoSpider extends AbstractSpider{
                 .setTimeOut(conf.getInt(HsdConstant.CRAWLER_TIME_OUT))
                 .setUserAgent(conf.getString(HsdConstant.CRAWLER_USER_AGENT));
 
-        long start = DateParser.parseDateBySchema("2015-10-22 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        long start = DateParser.parseDateBySchema("2014-9-22 00:00:00", "yyyy-MM-dd HH:mm:ss");
         long end = DateParser.parseDateBySchema("2015-10-22 23:59:59", "yyyy-MM-dd HH:mm:ss");
 
         //2. page processor configuration
@@ -61,7 +61,7 @@ public class Tech2ipoSpider extends AbstractSpider{
                 .addUrl("http://tech2ipo.com/news/1")
                 .addUrl("http://tech2ipo.com/startup/1")
                 .addUrl("http://tech2ipo.com/apps/1")
-                .thread(1)
+                .thread(4)
                 .setExitWhenComplete(true);
     }
 

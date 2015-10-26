@@ -42,8 +42,8 @@ public class HuXiuSpider extends AbstractSpider{
                 .setCharset("utf-8");
 
         //TODO: this spider just can crawl data a long time ago for example: one week because no specific time for each index url
-        long start = DateParser.parseDateBySchema("2015-10-7 00:00:00", "yyyy-MM-dd HH:mm:ss");
-        long end = DateParser.parseDateBySchema("2015-10-14 23:59:59", "yyyy-MM-dd HH:mm:ss");
+        long start = DateParser.parseDateBySchema("2014-9-22 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        long end = DateParser.parseDateBySchema("2015-10-22 23:59:59", "yyyy-MM-dd HH:mm:ss");
 
         //2. page processor configuration
 
@@ -61,7 +61,7 @@ public class HuXiuSpider extends AbstractSpider{
                 .addPipeline(pipeline)
                 .addUrl(UrlFactory.getHuXiuIndexPage(1, 1))
                 //.addUrl(UrlFactory.getHuXiuIndexPage(1, 2))
-                .thread(1)
+                .thread(4)
                 .setExitWhenComplete(true);
 
     }
