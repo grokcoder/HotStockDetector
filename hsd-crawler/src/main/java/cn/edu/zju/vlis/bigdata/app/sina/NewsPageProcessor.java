@@ -97,7 +97,7 @@ public class NewsPageProcessor implements PageProcessor{
             if(filter != null) {
                 String time = UrlParser.fetchTimeInfo(url, regex).get();
                 time = time.substring(1, time.length() - 1);
-                Long t = DateParser.parseDateBySchema(time, "yyMMdd");
+                Long t = DateParser.parseDateBySchema(time, "yyyyMMdd");
                 if(t == -1) com.sun.tools.javac.util.Assert.error("time paese error " + time);
 
                 FILTER_CODE code = filter.filtrateURLByTime(t);

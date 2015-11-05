@@ -1,5 +1,6 @@
 package cn.edu.zju.vlis.bigdata.app.sina;
 
+import cn.edu.zju.vlis.bigdata.DateParser;
 import cn.edu.zju.vlis.bigdata.SpiderContainer;
 import cn.edu.zju.vlis.bigdata.filter.Filter;
 import cn.edu.zju.vlis.bigdata.filter.TimeRangeFilter;
@@ -67,7 +68,11 @@ public class NewsSpider implements SpiderContainer {
         spiderName = "NewsSpider";
         conf = ConfigFactory.load();
 
-        Filter filter = new TimeRangeFilter(20151020, 20151020);
+        long start = DateParser.parseDateBySchema("2015-10-21 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        long end = DateParser.parseDateBySchema("2015-10-27 23:59:59", "yyyy-MM-dd HH:mm:ss");
+
+
+        Filter filter = new TimeRangeFilter(start, end);
         processor = new NewsPageProcessor(conf).setFilter(filter);
         pipeline = new NewsPipeline();
 
