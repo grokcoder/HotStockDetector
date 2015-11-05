@@ -65,6 +65,3 @@ if __name__ == "__main__":
     corpora.MmCorpus.serialize('../corpus/300docs.mm', corpus)
 
     logging.info("ETL is done!")
-
-
-

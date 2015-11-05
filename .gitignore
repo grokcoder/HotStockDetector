@@ -23,6 +23,7 @@ scripts/*
 
 logs/*
 hsd-crawler/logs/*
+*.pyc
 
 
 DataClean
