@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import logging
+import re
+
 import jieba
 from collections import defaultdict
 from gensim import corpora
@@ -13,32 +15,33 @@ __author__ = 'wangxiaoyi'
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 if __name__ == "__main__":
     logging.info("starting ETL ... ")
+
+    new_words = [word.decode("utf-8") for word in fio.get_words("../corpus/new_words.txt")]
+    for w in new_words:
+        jieba.add_word(w)
+
     path = "../corpus/stop_words_zh.txt"
     # 0. construct stop words list
     logging.info("construct stop word list")
-    stop_words = [word.decode("utf8") for word in fio.get_stop_words(path)]
+    stop_words = [word.decode("utf-8") for word in fio.get_stop_words(path)]
 
-    # todo: save these in another file
-    stop_words.append("一个".decode("utf8"))
-    stop_words.append("公司".decode("utf8"))
-    stop_words.append("项目".decode("utf8"))
-    stop_words.append("平台".decode("utf8"))
-    stop_words.append("年".decode("utf8"))
-    stop_words.append("人".decode("utf8"))
-    stop_words.append("新".decode("utf8"))
+    useless_words = [word.decode("utf-8") for word in fio.get_stop_words("../corpus/useless_words.txt")]
+    stop_words.extend(useless_words)
 
     # 1.retrieve the original data from database
     logging.info("retrieve original data from database")
-    results = dao.get_original_data_from_db(1, 30)
+    results = dao.get_original_data_from_db(1, 10000)
 
     documents = []
+    # 2.remove stop words, '\n', " "
+    logging.info("remove stop words")
     for row in results:
         rid = row[0]
         content = row[1]
+        # remove useless url and end content of file
+        content = re.sub('“看完这篇还不够？如果你也在创业，并且希望自己的项目被报道，请戳这里\s*<http.+>\s*告诉我们', "", content)
+        content = re.sub('<http.+>', '', content)
         seg_words = jieba.cut(content)
-
-        # 2.remove stop words, '\n', " "
-        logging.info("remove stop words for reports id %s" % rid)
         words = [w for w in seg_words if w not in stop_words and len(w) > 0 and w != "\n" and w != " "]
         documents.append(words)
 

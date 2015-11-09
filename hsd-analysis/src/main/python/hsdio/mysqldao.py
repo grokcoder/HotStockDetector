@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import MySQLdb
+import re
 __author__ = 'wangxiaoyi'
 
 
@@ -23,8 +24,12 @@ def get_original_data_from_db(start=0, end=100 * 10000):
 
 if __name__ == '__main__':
 
-    ress = get_original_data_from_db(1, 200)
+    ress = get_original_data_from_db(1, 50)
     for row in ress:
         print(row[0])
-        print(row[1])
+        content = row[1]
+        content = re.sub('“看完这篇还不够？如果你也在创业，并且希望自己的项目被报道，请戳这里\s*<http.+>\s*告诉我们', "", content)
+        content = re.sub('', '', content)
+        print(content)
+
 
