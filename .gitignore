@@ -25,6 +25,12 @@ logs/*
 hsd-crawler/logs/*
 *.pyc
 
+*.mm
+*.dic
+*.index
+*.model
+*.state
+*.dict
 
 DataClean
 FP-Growth

@@ -1,6 +1,5 @@
 package cn.edu.zju.vlis.bigdata.dao;
 
-import cn.edu.zju.vlis.bigdata.HsdConstant;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import org.slf4j.Logger;
@@ -26,26 +25,7 @@ public class BasicDAOImpl implements DAO{
 
     public BasicDAOImpl(){
         config = ConfigFactory.load();
-        init();
-    }
-
-
-    /**
-     * load the mysql jdbc driver
-     */
-    public void init(){
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            String url = config.getString(HsdConstant.DB_URL);
-            String name = config.getString(HsdConstant.DB_USER_NAME);
-            String password = config.getString(HsdConstant.DB_USER_PASSWORD);
-
-            conn = DriverManager.getConnection(url, name, password);
-
-
-        }catch (Exception cnfe){
-            LOG.error(cnfe.getMessage());
-        }
+        conn = ConnectionManager.conn.get();
     }
 
 

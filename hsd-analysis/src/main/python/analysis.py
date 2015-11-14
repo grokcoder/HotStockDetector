@@ -11,8 +11,8 @@ if __name__ == "__main__":
     dictionary = corpora.Dictionary.load('./corpus/300docs.dict')
     corpus = corpora.MmCorpus('./corpus/300docs.mm')
 
-    lda = models.ldamodel.LdaModel(corpus, id2word=dictionary, num_topics=500, passes=5)
-    lda.print_topics(500)
+    lda = models.ldamodel.LdaModel(corpus, id2word=dictionary, num_topics=30, passes=5)
+    lda.print_topics(30)
     lda.save("./corpus/lad.model")
 
     #tfidf = models.TfidfModel(corpus)
@@ -20,6 +20,6 @@ if __name__ == "__main__":
     #lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=100)
     #lsi.print_topics(100)
 
-    lda = models.LdaModel.load("./corpus/lad.model")
-    lda.print_topics(100)
+   # lda = models.LdaModel.load("./corpus/lad.model")
+    #lda.print_topics(100)
 

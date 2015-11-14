@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     # 1.retrieve the original data from database
     logging.info("retrieve original data from database")
-    results = dao.get_original_data_from_db(1, 10000)
+    results = dao.get_original_data_from_db(1, 100)
 
     documents = []
     # 2.remove stop words, '\n', " "
