@@ -2,6 +2,8 @@ package cn.edu.zju.vlis.bigdata.dao;
 
 import cn.edu.zju.vlis.bigdata.HsdConstant;
 import com.typesafe.config.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,6 +16,8 @@ import java.sql.SQLException;
  */
 public class ConnectionManager {
 
+    private static Logger LOG = LoggerFactory.getLogger(ConnectionManager.class);
+
 
     public static Config config = null;
 
@@ -24,11 +28,11 @@ public class ConnectionManager {
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
             } catch (InstantiationException e) {
-                e.printStackTrace();
+                LOG.error(e.getMessage());
             } catch (IllegalAccessException e) {
-                e.printStackTrace();
+                LOG.error(e.getMessage());
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+                LOG.error(e.getMessage());
             }
             String url = config.getString(HsdConstant.DB_URL);
             String name = config.getString(HsdConstant.DB_USER_NAME);
