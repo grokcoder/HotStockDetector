@@ -95,8 +95,7 @@ public class _36KrPageProcessor extends AbstractPageProcessor{
             return PAGE_TYPE.INDEX_PAGE;
         }else if(url.contains("http://36kr.com/p/")){
             return PAGE_TYPE.DETAIL_PAGE;
-        }else {
-            return PAGE_TYPE.NOT_DEFINE;
         }
+        return PAGE_TYPE.NOT_DEFINE;
     }
 }

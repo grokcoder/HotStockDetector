@@ -1,0 +1,2 @@
+ERROR main HBaseDAOImpl - Class cn.edu.zju.vlis.bigdata.orm.HBaseDAOImpl can not access a member of class cn.edu.zju.vlis.bigdata.orm.Student with modifiers "private"
+ERROR main HBaseDAOImpl - Class cn.edu.zju.vlis.bigdata.orm.HBaseDAOImpl can not access a member of class cn.edu.zju.vlis.bigdata.orm.Student with modifiers "private"
