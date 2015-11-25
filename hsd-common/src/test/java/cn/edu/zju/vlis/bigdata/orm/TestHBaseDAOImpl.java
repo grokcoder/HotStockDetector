@@ -1,7 +1,7 @@
 package cn.edu.zju.vlis.bigdata.orm;
 
+import cn.edu.zju.vlis.bigdata.Student;
 import org.apache.hadoop.hbase.client.Put;
-import org.junit.*;
 
 import java.io.IOException;
 

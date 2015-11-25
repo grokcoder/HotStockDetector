@@ -4,6 +4,10 @@ package cn.edu.zju.vlis.bigdata.app.model;
  * Created by wangxiaoyi on 15/10/21.
  *
  * report in the web of 36kr
+ *
+ * if this article data try to be persistent into HBase
+ * than should make sure that the Article an a column family in the hbase data base
+ *
  */
 public class Article {
 
@@ -14,6 +18,15 @@ public class Article {
     private String keywords;
     private String content;
 
+    private String row;// for hbase row key
+
+    public String getRowkey() {
+        return row;
+    }
+
+    public void setRowkey(String rowkey) {
+        this.row = rowkey;
+    }
 
     public String getTitle() {
         return title;

@@ -23,6 +23,7 @@ scripts/*
 
 logs/*
 hsd-crawler/logs/*
+hsd-common/logs/*
 *.pyc
 
 *.mm
@@ -31,6 +32,8 @@ hsd-crawler/logs/*
 *.model
 *.state
 *.dict
+
+
 
 DataClean
 FP-Growth

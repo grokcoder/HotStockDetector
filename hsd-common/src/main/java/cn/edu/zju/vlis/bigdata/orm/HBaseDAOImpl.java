@@ -1,12 +1,11 @@
 package cn.edu.zju.vlis.bigdata.orm;
 
+import com.google.protobuf.ServiceException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
-import org.apache.hadoop.hbase.client.Connection;
-import org.apache.hadoop.hbase.client.ConnectionFactory;
-import org.apache.hadoop.hbase.client.Put;
-import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +29,19 @@ public class HBaseDAOImpl extends AbstractNoSqlDAO {
 
     public HBaseDAOImpl() {
         conf = HBaseConfiguration.create();
-        conf.set("", "");
+        conf.set("hbase.zookeeper.quorum", "10.214.208.11,10.214.208.12,10.214.208.13,10.214.208.14");
+        conf.set("hbase.zookeeper.property.clientPort","2181");
+        conf.set("node1", "10.214.208.11");
+        conf.set("node2", "10.214.208.12");
+        conf.set("node3", "10.214.208.13");
+        conf.set("node4", "10.214.208.14");
+        try {
+            HBaseAdmin.checkHBaseAvailable(conf);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -66,6 +77,10 @@ public class HBaseDAOImpl extends AbstractNoSqlDAO {
     }
 
 
+    public void checkConnection(){
+        if (connection == null) connect();
+    }
+
     /**
      * store an object
      *
@@ -76,6 +91,7 @@ public class HBaseDAOImpl extends AbstractNoSqlDAO {
     public void store(Object object, String tableName) {
         Table table = null;
         try {
+            checkConnection();
             table = connection.getTable(TableName.valueOf(tableName));
             Objects.requireNonNull(table);
             Put put = getPut(object);
@@ -104,7 +120,7 @@ public class HBaseDAOImpl extends AbstractNoSqlDAO {
         for (Field field : fields) {
             field.setAccessible(true);
             String name = field.getName();
-            System.out.println(name);
+            //System.out.println(name);
             if (name.equals("row")) {
                 try {
                     if(field.get(obj) != null)
@@ -143,6 +159,7 @@ public class HBaseDAOImpl extends AbstractNoSqlDAO {
     public void store(List<Object> objects, String tableName) {
         Table table;
         try {
+            checkConnection();
             table = connection.getTable(TableName.valueOf(tableName));
             Objects.requireNonNull(table);
             List<Put> puts = new LinkedList<>();
@@ -153,6 +170,22 @@ public class HBaseDAOImpl extends AbstractNoSqlDAO {
         } catch (Exception ioe) {
             LOG.error(ioe.getMessage());
             return;
+        }
+    }
+
+    /**
+     * create table with HTableDescriptor
+     * @param htd
+     */
+    public void createTable(HTableDescriptor htd){
+        Admin admin =  null;
+        try {
+            checkConnection();
+            admin = connection.getAdmin();
+            admin.createTable(htd);
+        } catch (IOException e) {
+            LOG.error("get admin error ", e);
+            e.printStackTrace();
         }
     }
 }

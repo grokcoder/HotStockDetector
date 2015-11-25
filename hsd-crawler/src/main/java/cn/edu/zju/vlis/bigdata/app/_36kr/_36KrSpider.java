@@ -34,8 +34,12 @@ public class _36KrSpider  extends AbstractSpider{
                 .setTimeOut(conf.getInt(HsdConstant.CRAWLER_TIME_OUT))
                 .setUserAgent(conf.getString(HsdConstant.CRAWLER_USER_AGENT));
 
-        long start = DateParser.parseDateBySchema("2014-9-22 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        /*long start = DateParser.parseDateBySchema("2014-9-22 00:00:00", "yyyy-MM-dd HH:mm:ss");
         long end = DateParser.parseDateBySchema("2015-10-22 23:59:59", "yyyy-MM-dd HH:mm:ss");
+*/
+
+        long start = DateParser.parseDateBySchema("2015-11-20 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        long end = DateParser.parseDateBySchema("2015-11-24 23:59:59", "yyyy-MM-dd HH:mm:ss");
 
         //2. page processor configuration
         this.processor = new _36KrPageProcessor()
@@ -43,14 +47,15 @@ public class _36KrSpider  extends AbstractSpider{
                         .setSite(site);
 
         //3. pipeline configuration
-        this.pipeline = new _36KrPipeline();
+        //this.pipeline = new _36KrPipeline();
+        this.pipeline = new _36KrPipelineForHBase();
 
         //4. spider configuration
         this.spider = Spider.create(processor)
                         .addPipeline(pipeline)
                         .addUrl("http://36kr.com/")
                         //.addUrl("http://36kr.com/?b_url_code=5038684&d=next")
-                        .thread(4)
+                        .thread(1)
                         .setExitWhenComplete(true);
 
     }

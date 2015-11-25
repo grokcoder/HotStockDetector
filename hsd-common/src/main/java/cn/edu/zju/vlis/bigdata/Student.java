@@ -1,4 +1,4 @@
-package cn.edu.zju.vlis.bigdata.orm;
+package cn.edu.zju.vlis.bigdata;
 
 /**
  * Created by wangxiaoyi on 15/11/24.
