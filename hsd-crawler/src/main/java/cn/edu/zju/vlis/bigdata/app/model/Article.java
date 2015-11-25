@@ -1,5 +1,7 @@
 package cn.edu.zju.vlis.bigdata.app.model;
 
+import cn.edu.zju.vlis.bigdata.orm.HBaseRecord;
+
 /**
  * Created by wangxiaoyi on 15/10/21.
  *
@@ -9,7 +11,7 @@ package cn.edu.zju.vlis.bigdata.app.model;
  * than should make sure that the Article an a column family in the hbase data base
  *
  */
-public class Article {
+public class Article extends HBaseRecord{
 
     private String title;
     private String url;
@@ -18,15 +20,6 @@ public class Article {
     private String keywords;
     private String content;
 
-    private String row;// for hbase row key
-
-    public String getRowkey() {
-        return row;
-    }
-
-    public void setRowkey(String rowkey) {
-        this.row = rowkey;
-    }
 
     public String getTitle() {
         return title;

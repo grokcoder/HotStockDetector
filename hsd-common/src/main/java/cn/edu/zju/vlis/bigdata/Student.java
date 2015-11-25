@@ -1,26 +1,18 @@
 package cn.edu.zju.vlis.bigdata;
 
+import cn.edu.zju.vlis.bigdata.orm.HBaseRecord;
+
 /**
  * Created by wangxiaoyi on 15/11/24.
  *
  * just for test
  */
-public class Student {
+public class Student extends HBaseRecord{
 
     private String name;
     private String addr;
     private long phoneNumber;
     private int age;
-
-    private String row; // always should have this attr
-
-    public String getRow() {
-        return row;
-    }
-
-    public void setRow(String row) {
-        this.row = row;
-    }
 
     public void setName(String name) {
         this.name = name;

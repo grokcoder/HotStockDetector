@@ -4,10 +4,13 @@ import cn.edu.zju.vlis.bigdata.app.model.Article;
 import cn.edu.zju.vlis.bigdata.common.HsdConstant;
 import cn.edu.zju.vlis.bigdata.orm.HBaseDAOImpl;
 import cn.edu.zju.vlis.bigdata.orm.NoSqlDAO;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Scan;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -34,8 +37,19 @@ public class _36KrPipelineForHBase  implements Pipeline{
         Article article = resultItems.get(HsdConstant.MODEL);
         if(article != null){
             int id = aid.incrementAndGet();
-            article.setRowkey(String.format("%10d", id));
+            article.setRow(String.format("%10d", id));
             dao.store(article, "crawlers_data");
         }
+    }
+
+
+    public void testQuery(){
+        List<Article> ans = ((HBaseDAOImpl) dao).
+                query(Article.class, new Scan(), TableName.valueOf("crawlers_data"));
+        int a;
+    }
+
+    public static void main(String []args){
+        new _36KrPipelineForHBase().testQuery();
     }
 }
