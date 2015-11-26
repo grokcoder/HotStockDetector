@@ -38,8 +38,8 @@ public class _36KrSpider  extends AbstractSpider{
         long end = DateParser.parseDateBySchema("2015-10-22 23:59:59", "yyyy-MM-dd HH:mm:ss");
 */
 
-        long start = DateParser.parseDateBySchema("2015-11-20 00:00:00", "yyyy-MM-dd HH:mm:ss");
-        long end = DateParser.parseDateBySchema("2015-11-24 23:59:59", "yyyy-MM-dd HH:mm:ss");
+        long start = DateParser.parseDateBySchema("2015-11-24 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        long end = DateParser.parseDateBySchema("2015-11-25 23:59:59", "yyyy-MM-dd HH:mm:ss");
 
         //2. page processor configuration
         this.processor = new _36KrPageProcessor()

@@ -78,7 +78,7 @@ public class _36KrPageProcessor extends AbstractPageProcessor{
                 "yyyy-MM-dd");
         article.setPubDate(date);
 
-        article.setPubMedia(html.xpath("meta[@name=author]/@content").get());
+        article.setPubMedia(html.xpath("meta[@property=og:site_name]/@content").get());
         article.setContent(html.xpath("section[@class=article]/tidyText()").get());
         page.putField(HsdConstant.MODEL, article);
     }

@@ -33,6 +33,8 @@ hsd-common/logs/*
 *.state
 *.dict
 
+lib/*
+
 
 
 DataClean

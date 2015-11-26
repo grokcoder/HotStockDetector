@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * dao class for spring-jdbc
  */
 public class SpringDAOImpl{
-
     protected JdbcTemplate jdbcTemplate;
 
     public SpringDAOImpl(){

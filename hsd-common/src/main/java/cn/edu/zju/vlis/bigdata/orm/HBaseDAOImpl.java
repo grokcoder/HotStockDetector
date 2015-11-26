@@ -8,7 +8,6 @@ import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.apache.hadoop.hbase.util.Classes;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
@@ -111,27 +110,24 @@ public class HBaseDAOImpl extends AbstractNoSqlDAO {
     public Put getPut(Object obj) throws NoRowKeyFoundException {
         Class cl = obj.getClass();
 
-        Field[] fields = cl.getDeclaredFields();
-        List<Field> atr = new LinkedList<>();
         Put put = null;
         //1. construct put object by rowkey
-        for (Field field : fields) {
-            field.setAccessible(true);
-            String name = field.getName();
-            //System.out.println(name);
-            if (name.equals("row")) {
-                try {
-                    if (field.get(obj) != null)
-                        put = new Put(Bytes.toBytes(field.get(obj).toString()));
-                } catch (IllegalAccessException illae) {
-                    LOG.error(illae.getMessage());
-                }
-            } else atr.add(field);
+
+        Class scl = cl.getSuperclass();
+        if(scl == null) throw new NoRowKeyFoundException("No RowKey Found for " + cl.getName());
+        else {
+            try {
+                String row = (String) scl.getDeclaredFields()[0].get(obj);
+                put = new Put(Bytes.toBytes(row));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
-        if (put == null) throw new NoRowKeyFoundException("No RowKey Found for " + cl.getName());
+
+        Field[] fields = cl.getDeclaredFields();
 
         //2. add other object for the put object
-        for (Field field : atr) {
+        for (Field field : fields) {
             field.setAccessible(true);
             try {
                 Object value = field.get(obj);
